@@ -275,7 +275,7 @@
                     <div class="block block-three"></div>
                     <div class="block block-four"></div>
                     <a href="javascript:void(0)">
-                      <img class="avatar" src="../assets/img/emilyz.jpg" alt="...">
+                      <img class="avatar" src="{{ asset('img/emilyz.jpg') }}" alt="...">
                       <h5 class="title">Mike Andrew</h5>
                     </a>
                     <p class="description">
