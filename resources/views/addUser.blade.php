@@ -58,9 +58,9 @@
             </a>
           </li>
           <li>
-            <a href="./icons.html">
+            <a href="/nmap">
               <i class="tim-icons icon-atom"></i>
-              <p>Icons</p>
+              <p>Nmap</p>
             </a>
           </li>
           <li>
