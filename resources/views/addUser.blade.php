@@ -70,12 +70,6 @@
             </a>
           </li>
           <li>
-            <a href="./notifications.html">
-              <i class="tim-icons icon-bell-55"></i>
-              <p>Notifications</p>
-            </a>
-          </li>
-          <li>
             <a href="./tables.html">
               <i class="tim-icons icon-puzzle-10"></i>
               <p>Table List</p>
