@@ -21,6 +21,11 @@ Route::get('/user', function () {
     return view('user');
 });
 
+Route::get('/user/add', function () {
+    return view('addUser');
+});
+
 Route::get('/login', function () {
     return view('login');
 });
+
