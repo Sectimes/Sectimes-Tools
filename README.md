@@ -22,7 +22,7 @@ git clone git@github.com:Sectimes/Sectimes-Tools.git
 ```bash
 cd Sectimes-Tools && php artisan serve
 ```
-- By default, the project would be built on port 8000.
+- By default, the project should be built on port 8000.
 
 ### Build with Docker:
 - To be updated in the near future.
