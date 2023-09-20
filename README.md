@@ -38,3 +38,6 @@ UI Developer: [Creative Tim](https://www.creative-tim.com)
 Copyright © 2013-current Nicolas Lœuillet [sectimescyber@gmail.com](sectimescyber@gmail.com)
 
 This work is free. You can redistribute it and/or modify it under the terms of the MIT License. See the [COPYING.md](https://github.com/wallabag/wallabag/blob/master/COPYING.md) file for more details.
+
+## Bugs / Security bugs:
+If you discover bugs, please report them in [Github Issues](https://github.com/Sectimes/Sectimes-Tools/issues).
