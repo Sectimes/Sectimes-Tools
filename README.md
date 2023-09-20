@@ -10,6 +10,7 @@ This 'Webtool' is mainly built for easing your pentesting work by intergrating m
 - PHP 7.4+
 - Nginx
 - Laravel
+- Composer
 
 ## Installation:
 ### Manually Build 
@@ -24,20 +25,20 @@ cd Sectimes-Tools && php artisan serve
 - By default, the project would be built on port 8000.
 
 ### Build with Docker:
-- To be updated in the near future
+- To be updated in the near future.
 
 ## Developers:
 Thanks to our core Developers:
-- D7cky - Nguyễn Quang Đức from HPT Cyber Security Center (HSE)
-- MinKhoy - Khôi Minh Võ from HPT Cyber Security Center (HSE)
+- D7cky - Nguyễn Quang Đức from HPT Cyber Security Center (HSE).
+- MinKhoy - Khôi Minh Võ from HPT Cyber Security Center (HSE).
 
-UI Developer: [Creative Tim](https://www.creative-tim.com)
+UI Developer: [Creative Tim](https://www.creative-tim.com).
 - Original Template Project: https://www.creative-tim.com/product/black-dashboard
 
 ## License:
-Copyright © 2013-current Nicolas Lœuillet [sectimescyber@gmail.com](sectimescyber@gmail.com)
+Copyright © 2013-current Sectimes Cyber [sectimescyber@gmail.com](sectimescyber@gmail.com).
 
 This work is free. You can redistribute it and/or modify it under the terms of the MIT License. See the [COPYING.md](https://github.com/wallabag/wallabag/blob/master/COPYING.md) file for more details.
 
 ## Bugs / Security bugs:
-If you discover bugs, please report them in [Github Issues](https://github.com/Sectimes/Sectimes-Tools/issues).
+If you discover bugs, please report them in [Github Issues](https://github.com/Sectimes/Sectimes-Tools/issues) or on [huntr.dev](https://huntr.dev).
