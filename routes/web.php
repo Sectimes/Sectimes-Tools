@@ -38,5 +38,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/nmap', function () {
         return view('nmap');
     });
+
+    Route::get('/dirsearch', function (){
+        return view('dirsearch');
+    });
 });
 
