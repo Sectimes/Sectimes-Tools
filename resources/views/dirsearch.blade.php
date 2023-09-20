@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/apple-icon.png') }}">
   <link rel="icon" type="image/png" href="{{ asset('img/afavicon.png') }}">
   <title>
-    Black Dashboard by Creative Tim
+    Sectimes Tools
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
@@ -36,6 +36,14 @@
 </head>
 
 <body class="">
+    <style>
+        .hiddenContent {
+            display: none; 
+        }
+        .visibleContent {
+            display: block; 
+        }
+    </style>
   <div class="wrapper">
     <div class="sidebar">
       <!--
@@ -178,7 +186,7 @@
           <div class="col-md-11">
             <div class="card">
               <div class="card-header">
-                <h5 class="title">Network Scanning Tools</h5>
+                <h5 class="title">Dirsearch Scanning Tools</h5>
               </div>
               <div class="card-body">
                 <form>
@@ -186,8 +194,9 @@
                     <div class="col-md-6 pr-md-1">
                       <div class="form-group">
                         <label>Select Tools</label>
-                        <select class="form-control" placeholder="Select Tools" value="">
-                            <option value="Nmap">Nmap</option>
+                        <select class="form-control" id="options" placeholder="Select Tools">
+                            <option data-item="ffuf">Ffuf</option>
+                            <option data-item="gobuster">Gobuster</option>
                         </select>
                       </div>
                     </div>
@@ -199,7 +208,7 @@
                     </div>
                   </div>
                   <label>Options</label>
-                  <div class="row">
+                  <div class="row" id="ffuf" class="hiddenContent">
                     <style>
                         .switch {
                           position: relative;
@@ -541,6 +550,17 @@
         token: "ee6fab19c5a04ac1a32a645abde4613a",
         application: "black-dashboard-free"
       });
+  </script>
+  <script>
+    $(document).ready(function(){
+        $('#options').change(function(){
+            $('#helpPanel div').hide();
+            $( "#options option:selected").each(function() {
+                var targetDiv = $(this).attr("data-item");
+                $('#'+targetDiv).show();
+            });
+        });
+    });
   </script>
 </body>
 
