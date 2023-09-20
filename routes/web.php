@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,22 +14,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::group('prefix' => '/auth', function () {
 
-Route::get('/user', function () {
-    return view('user');
-});
-
-Route::get('/user/add', function () {
-    return view('addUser');
-});
+// });
 
 Route::get('/login', function () {
     return view('login');
+})->name('login');
+
+Route::post('/login', [LoginController::class, 'CheckLogin']);
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware' => 'author', 'prefix' => 'admin'], function () {
+        Route::get('/add', function () {
+            return view('addUser');
+        });
+    });
+
+    Route::get('/', function () {
+        return view('index');
+    });
+
+    Route::get('/nmap', function () {
+        return view('nmap');
+    });
 });
 
-Route::get('/nmap', function () {
-    return view('nmap');
-});
