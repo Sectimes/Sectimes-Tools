@@ -28,11 +28,7 @@ cd Sectimes-Tools && php artisan serve
 - To be updated in the near future.
 
 ## Developers:
-Thanks to our core Developers:
-- D7cky - Nguyễn Quang Đức from HPT Cyber Security Center (HSE).
-- MinKhoy - Khôi Minh Võ from HPT Cyber Security Center (HSE).
-
-UI Developer: [Creative Tim](https://www.creative-tim.com).
+Template UI Developer: [Creative Tim](https://www.creative-tim.com).
 - Original Template Project: https://www.creative-tim.com/product/black-dashboard
 
 ## License:
