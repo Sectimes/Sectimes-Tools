@@ -28,6 +28,8 @@ cd Sectimes-Tools && php artisan serve
 - To be updated in the near future.
 
 ## Developers:
+Many thanks to our core Developers.
+
 Template UI Developer: [Creative Tim](https://www.creative-tim.com).
 - Original Template Project: https://www.creative-tim.com/product/black-dashboard
 
