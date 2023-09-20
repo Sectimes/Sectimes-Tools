@@ -44,10 +44,10 @@
       <div class="sidebar-wrapper">
         <div class="logo">
           <a href="javascript:void(0)" class="simple-text logo-mini">
-            CT
+            ST
           </a>
-          <a href="javascript:void(0)" class="simple-text logo-normal">
-            Creative Tim
+          <a href="/" class="simple-text logo-normal">
+            Sectimes Tools
           </a>
         </div>
         <ul class="nav">
@@ -58,7 +58,7 @@
             </a>
           </li>
           <li>
-            <a href="./icons.html">
+            <a href="/nmap">
               <i class="tim-icons icon-atom"></i>
               <p>Nmap</p>
             </a>
@@ -108,7 +108,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:void(0)">User Profile</a>
+            <a class="navbar-brand" href="/nmap">Network Scanning</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -149,7 +149,7 @@
                   </p>
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
-                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a></li>
+                  <li class="nav-link"><a href="/user" class="nav-item dropdown-item">Profile</a></li>
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a></li>
                   <li class="dropdown-divider"></li>
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a></li>
@@ -178,17 +178,16 @@
           <div class="col-md-11">
             <div class="card">
               <div class="card-header">
-                <h5 class="title">Nmap - Network Mapper Scanning Tool</h5>
+                <h5 class="title">Network Scanning Tools</h5>
               </div>
               <div class="card-body">
                 <form>
                   <div class="row">
                     <div class="col-md-6 pr-md-1">
                       <div class="form-group">
-                        <label>User Role</label>
-                        <select class="form-control" placeholder="Select User Role" value="">
-                            <option value="Administrator">Administrator</option>
-                            <option value="Normal User">Normal User</option>
+                        <label>Select Tools</label>
+                        <select class="form-control" placeholder="Select Tools" value="">
+                            <option value="Administrator">Nmap</option>
                         </select>
                       </div>
                     </div>
@@ -328,7 +327,7 @@
                   <div class="col-md-12 pl-md-1">
                     <div class="form-group">
                       <label for="exampleDomain">Output Result</label>
-                      <textarea class="form-control" style="height: 200%;" placeholder="Results" readonly></textarea>
+                      <textarea class="form-control" id="nmap" style="height:500px; color: white;" placeholder="Results" readonly></textarea>
                     </div>
                   </div>
               </div>

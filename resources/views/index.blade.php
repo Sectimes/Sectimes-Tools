@@ -44,10 +44,10 @@
       <div class="sidebar-wrapper">
         <div class="logo">
           <a href="javascript:void(0)" class="simple-text logo-mini">
-            CT
+            ST
           </a>
-          <a href="javascript:void(0)" class="simple-text logo-normal">
-            Creative Tim
+          <a href="/" class="simple-text logo-normal">
+            Sectimes Tools
           </a>
         </div>
         <ul class="nav">
@@ -58,7 +58,7 @@
             </a>
           </li>
           <li>
-            <a href="./icons.html">
+            <a href="nmap">
               <i class="tim-icons icon-atom"></i>
               <p>Nmap</p>
             </a>

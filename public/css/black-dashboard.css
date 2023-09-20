@@ -2196,6 +2196,10 @@ textarea.form-control {
   height: auto;
 }
 
+/* textarea.form-control#nmap {
+  height: 500px;
+} */
+
 .form-group {
   margin-bottom: 1rem;
 }
@@ -19076,7 +19080,7 @@ fieldset[disabled] .form-control {
 
 textarea.form-control {
   max-width: 100%;
-  max-height: 80px;
+  max-height: 500px;
   padding: 10px 10px 0 0;
   resize: none;
   border: none;
