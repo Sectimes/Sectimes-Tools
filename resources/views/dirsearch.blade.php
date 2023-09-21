@@ -36,14 +36,6 @@
 </head>
 
 <body class="">
-    <style>
-        .hiddenContent {
-            display: none; 
-        }
-        .visibleContent {
-            display: block; 
-        }
-    </style>
   <div class="wrapper">
     <div class="sidebar">
       <!--
@@ -186,7 +178,7 @@
           <div class="col-md-11">
             <div class="card">
               <div class="card-header">
-                <h5 class="title">Dirsearch Scanning Tools</h5>
+                <h5 class="title">Directory Scanning</h5>
               </div>
               <div class="card-body">
                 <form>
@@ -194,9 +186,9 @@
                     <div class="col-md-6 pr-md-1">
                       <div class="form-group">
                         <label>Select Tools</label>
-                        <select class="form-control" id="options" placeholder="Select Tools">
-                            <option data-item="ffuf">Ffuf</option>
-                            <option data-item="gobuster">Gobuster</option>
+                        <select class="form-control" placeholder="Select Tools" value="">
+                            <option value="Nmap">Ffuf</option>
+                            <option value="Gobuster">Gobuster</option>
                         </select>
                       </div>
                     </div>
@@ -207,127 +199,15 @@
                       </div>
                     </div>
                   </div>
-                  <label>Options</label>
-                  <div class="row" id="ffuf" class="hiddenContent">
-                    <style>
-                        .switch {
-                          position: relative;
-                          display: inline-block;
-                          width: 60px;
-                          height: 34px;
-                        }
-                        
-                        .switch input { 
-                          opacity: 0;
-                          width: 0;
-                          height: 0;
-                        }
-                        
-                        .slider {
-                          position: absolute;
-                          cursor: pointer;
-                          top: 0;
-                          left: 0;
-                          right: 0;
-                          bottom: 0;
-                          background-color: #ccc;
-                          -webkit-transition: .4s;
-                          transition: .4s;
-                        }
-                        
-                        .slider:before {
-                          position: absolute;
-                          content: "";
-                          height: 26px;
-                          width: 26px;
-                          left: 4px;
-                          bottom: 4px;
-                          background-color: white;
-                          -webkit-transition: .4s;
-                          transition: .4s;
-                        }
-                        
-                        input:checked + .slider {
-                          background-color: #2196F3;
-                        }
-                        
-                        input:focus + .slider {
-                          box-shadow: 0 0 1px #2196F3;
-                        }
-                        
-                        input:checked + .slider:before {
-                          -webkit-transform: translateX(26px);
-                          -ms-transform: translateX(26px);
-                          transform: translateX(26px);
-                        }
-                        
-                        /* Rounded sliders */
-                        .slider.round {
-                          border-radius: 34px;
-                        }
-                        
-                        .slider.round:before {
-                          border-radius: 50%;
-                        }
-                    </style>
-                    <div class="col-md-2 pr-md-1">
-                      <label>Version</label>
-                      <div class="form-group">
-                        <label class="switch">
-                          <input type="checkbox">
-                          <span class="slider round"></span>
-                        </label>
-                      </div>
+                  <div class="col-md-6 pl-md-1">
+                    <label for="exampleDomain">Upload wordlist file</label>
+                    <div class="form-control">
+                      <input type="file" class="form-group" placeholder="Command">
                     </div>
-                    <div class="col-md-2 pr-md-1">
-                        <label>Service</label><br>
-                        <div class="form-group">
-                          <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                          </label>
-                        </div>
-                      </div>
-                      <div class="col-md-2 pr-md-1">
-                        <label>OS</label>
-                        <div class="form-group">
-                          <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                          </label>
-                        </div>
-                      </div>
-                      <div class="col-md-2 pr-md-1">
-                        <label>Verbose</label>
-                        <div class="form-group">
-                          <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                          </label>
-                        </div>
-                      </div>
-                      <div class="col-md-2 pr-md-1">
-                        <label>Full ports</label>
-                        <div class="form-group">
-                          <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                          </label>
-                        </div>
-                      </div>
-                      <div class="col-md-2 pr-md-1">
-                        <label>Aggressive mode</label>
-                        <div class="form-group">
-                          <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                          </label>
-                        </div>
-                      </div>
                   </div>
                 </form>
                 <!-- Command to Execute Nmap -->
-                <div class="col-md-12 pl-md-1">
+                  <div class="col-md-12 pl-md-1">
                     <div class="form-group">
                       <label for="exampleDomain">Command to Execute</label>
                       <input type="text" class="form-control" placeholder="Command">
@@ -550,17 +430,6 @@
         token: "ee6fab19c5a04ac1a32a645abde4613a",
         application: "black-dashboard-free"
       });
-  </script>
-  <script>
-    $(document).ready(function(){
-        $('#options').change(function(){
-            $('#helpPanel div').hide();
-            $( "#options option:selected").each(function() {
-                var targetDiv = $(this).attr("data-item");
-                $('#'+targetDiv).show();
-            });
-        });
-    });
   </script>
 </body>
 
