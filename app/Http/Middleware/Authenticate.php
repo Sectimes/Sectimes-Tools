@@ -23,6 +23,23 @@ class Authenticate extends Middleware
 
     // public function handle(Request $request, Closure $next)
     // {
-    //     return redirect(route('login'));
+    //     $checklogin = $this->isLogin($request);
+    //     if ($request->path() === "login" && $checklogin === false) {
+    //         return redirect(route('login'));
+    //     } else {
+    //         return response($checklogin);
+    //     }
+
+    //     if ($request->header("token") !== $checklogin) {
+    //         return redirect(route('login'));
+    //     } 
+    // }
+
+    // public function isLogin($request) {
+    //     $token = md5(uniqid(rand(), true));
+    //     if ($request->input('username') === "d7cky" && $request->input('password') === "123") {
+    //         return $token;
+    //     }
+    //     return false;
     // }
 }

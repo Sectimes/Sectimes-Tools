@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 class LoginController extends Controller
 {
     public function CheckLogin(Request $request) {
-        dd($request);
-        if ($request->username === "d7cky" && $request->password === "123") {
-            return view('index', $request->username);
-        }
-        return "Sai tài khoản hoặc mật khẩu nhá";
+        dd($request->all());
+        // if ($request->input('username') === "d7cky" && $request->input('password') === "123") {
+        //     return view('index');
+        // }
+        // return view('login');
     }
 }

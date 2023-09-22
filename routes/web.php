@@ -22,18 +22,18 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
-Route::post('/login', [LoginController::class, 'CheckLogin']);
+Route::post('/login', [LoginController::class => 'CheckLogin']);
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::group(['middleware' => 'author', 'prefix' => 'admin'], function () {
-        Route::get('/add', function () {
-            return view('addUser');
-        });
-    });
+    // Route::group(['middleware' => 'author', 'prefix' => 'admin'], function () {
+    //     Route::get('/add', function () {
+    //         return view('addUser');
+    //     });
+    // });
 
     Route::get('/', function () {
         return view('index');
-    });
+    })->name('index');
 
     Route::get('/nmap', function () {
         return view('nmap');
@@ -43,3 +43,4 @@ Route::group(['middleware' => 'auth'], function () {
         return view('dirsearch');
     });
 });
+
