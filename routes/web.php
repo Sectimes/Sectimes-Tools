@@ -24,57 +24,22 @@ Route::get('/login', function () {
 
 Route::post('/login', [LoginController::class, 'CheckLogin']);
 
-// Route::group(['middleware' => 'auth'], function () {
-//     Route::group(['middleware' => 'author', 'prefix' => 'admin'], function () {
-//         Route::get('/add', function () {
-//             return view('addUser');
-//         });
-//     });
+Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware' => 'author', 'prefix' => 'admin'], function () {
+        Route::get('/add', function () {
+            return view('addUser');
+        });
+    });
 
-//     Route::get('/', function () {
-//         return view('index');
-//     });
+    Route::get('/', function () {
+        return view('index');
+    });
 
-//     Route::get('/nmap', function () {
-//         return view('nmap');
-//     });
+    Route::get('/nmap', function () {
+        return view('nmap');
+    });
 
-//     Route::get('/dirsearch', function (){
-//         return view('dirsearch');
-//     });
-// });
-
-Route::get('/', function () {
-    return view('index');
-});
-
-Route::get('/nmap', function () {
-    return view('nmap');
-});
-
-Route::get('/dirsearch', function (){
-    return view('dirsearch');
-});
-
-Route::get('/user', function () {
-    return view('user');
-});
-
-Route::get('/user/add', function() {
-    return view('addUser');
-});
-
-Route::get('/icons', function() {
-    return view('icons');
-});
-Route::get('/tables', function() {
-    return view('tables');
-});
-
-Route::get('/typography', function() {
-    return view('typography');
-});
-
-Route::get('/upgrade', function() {
-    return view('upgrade');
+    Route::get('/dirsearch', function (){
+        return view('dirsearch');
+    });
 });
