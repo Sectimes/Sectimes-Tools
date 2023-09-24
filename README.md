@@ -11,7 +11,7 @@
 [![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
 ---
 
-Welcome to an innovative open-source project designed to streamline the management of security tools, making them more accessible and user-friendly. Our platform is dedicated to simplifying the use of essential security tools, written in PHP - Laravel.
+Welcome to an innovative open-source project designed to streamline the management of security tools, making them more accessible and user-friendly. Our platform - **Sectimes Tools Manager** is dedicated to simplifying the use of essential security tools, written in PHP - Laravel.
 
 ![Sectimes-tools-example-pic](/public/img/Sectimes-tools-example-pic.png)
 ## Introduction:
@@ -50,9 +50,8 @@ cd Sectimes-Tools && docker-compose up
 - If things run smoothly, by default, the project would comes up on port 8000.
 - Go to `http://localhost:8000` to connect to the app.
 
-
 ## Developers:
-Many thanks to our core Developers. (They require to hide their names, so we tend to call them <span style="color:yellow;">Anonymous Duck</span> and <span style="color:brown;">Anonymous Monkey</span>).
+Many thanks to our core Developers. (They require to hide their names, so we tend to call them ***Anonymous Duck*** and ***Anonymous Monkey***).
 
 Template UI Developer: [Creative Tim](https://www.creative-tim.com).
 - Original Template Project: https://www.creative-tim.com/product/black-dashboard
@@ -63,7 +62,8 @@ Copyright © 2013-current Sectimes Cyber [sectimescyber@gmail.com](sectimescyber
 This work is free. You can redistribute it and/or modify it under the terms of the MIT License. See the [COPYING.md](https://github.com/wallabag/wallabag/blob/master/COPYING.md) file for more details.
 
 ## Bugs / Security bugs:
-If you discover bugs, please report them in [Github Issues](https://github.com/Sectimes/Sectimes-Tools/issues) or on [huntr.dev](https://huntr.dev).
+> [!IMPORTANT]
+> If you discover bugs, please report them in [Github Issues](https://github.com/Sectimes/Sectimes-Tools/issues) or on [huntr.dev](https://huntr.dev).
 
 ## Contact:
 Contact us via this email: [sectimescyber@gmail.com](sectimescyber@gmail.com).
