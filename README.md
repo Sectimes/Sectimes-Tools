@@ -63,3 +63,6 @@ This work is free. You can redistribute it and/or modify it under the terms of t
 
 ## Bugs / Security bugs:
 If you discover bugs, please report them in [Github Issues](https://github.com/Sectimes/Sectimes-Tools/issues) or on [huntr.dev](https://huntr.dev).
+
+## Contact:
+Contact us via this email: [sectimescyber@gmail.com](sectimescyber@gmail.com).
