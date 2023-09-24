@@ -50,7 +50,7 @@ cd Sectimes-Tools && docker-compose up
 
 
 ## Developers:
-Many thanks to our core Developers. (They require to hide their names, so we tend to call them <span style="color:yellow;">Anonymous Duck</span> and <span style="color:brown;">Anonymous Monkey</span>)
+Many thanks to our core Developers. (They require to hide their names, so we tend to call them <span style="color:yellow;">Anonymous Duck</span> and <span style="color:brown;">Anonymous Monkey</span>).
 
 Template UI Developer: [Creative Tim](https://www.creative-tim.com).
 - Original Template Project: https://www.creative-tim.com/product/black-dashboard
