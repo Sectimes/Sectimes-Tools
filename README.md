@@ -1,5 +1,7 @@
 <h1 align="center">Sectimes Tools Manager</h1>
 
+![Sectimes](https://badgen.net/badge/Sectimes/Cyber/purple?icon=github&scale=1.5)
+
 ![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)
 ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)
 
