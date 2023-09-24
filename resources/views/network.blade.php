@@ -58,9 +58,9 @@
             </a>
           </li>
           <li>
-            <a href="/nmap">
+            <a href="/network">
               <i class="tim-icons icon-atom"></i>
-              <p>Nmap</p>
+              <p>Network</p>
             </a>
           </li>
           <li>
@@ -108,7 +108,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="/nmap">Network Scanning</a>
+            <a class="navbar-brand" href="/network">Network Scanning</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>

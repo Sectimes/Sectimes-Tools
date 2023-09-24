@@ -20,9 +20,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/apple-icon.png') }}">
-  <link rel="icon" type="image/png" href="{{ asset('img/afavicon.png') }}">
+  <link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}">
   <title>
-    Sectimes Tools
+    Black Dashboard by Creative Tim
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
@@ -32,7 +32,7 @@
   <!-- CSS Files -->
   <link href="{{ asset('css/black-dashboard.css?v=1.0.0') }}" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="{{ asset('demo/demo.css') }}" rel="stylesheet" />
+  <link href="{{ asset('demo/demo.css" rel="stylesheet') }}" />
 </head>
 
 <body class="">
@@ -44,10 +44,10 @@
       <div class="sidebar-wrapper">
         <div class="logo">
           <a href="javascript:void(0)" class="simple-text logo-mini">
-            ST
+            CT
           </a>
-          <a href="/" class="simple-text logo-normal">
-            Sectimes Tools
+          <a href="javascript:void(0)" class="simple-text logo-normal">
+            Creative Tim
           </a>
         </div>
         <ul class="nav">
@@ -58,15 +58,27 @@
             </a>
           </li>
           <li>
-            <a href="/network">
+            <a href="./icons.html">
               <i class="tim-icons icon-atom"></i>
-              <p>Network</p>
+              <p>Icons</p>
             </a>
           </li>
-          <li>
+          <li class="active ">
             <a href="./map.html">
               <i class="tim-icons icon-pin"></i>
               <p>Maps</p>
+            </a>
+          </li>
+          <li>
+            <a href="./notifications.html">
+              <i class="tim-icons icon-bell-55"></i>
+              <p>Notifications</p>
+            </a>
+          </li>
+          <li>
+            <a href="./user.html">
+              <i class="tim-icons icon-single-02"></i>
+              <p>User Profile</p>
             </a>
           </li>
           <li>
@@ -108,7 +120,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="/network">Network Scanning</a>
+            <a class="navbar-brand" href="javascript:void(0)">Maps</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -149,7 +161,7 @@
                   </p>
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
-                  <li class="nav-link"><a href="/user" class="nav-item dropdown-item">Profile</a></li>
+                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a></li>
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a></li>
                   <li class="dropdown-divider"></li>
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a></li>
@@ -175,57 +187,17 @@
       <!-- End Navbar -->
       <div class="content">
         <div class="row">
-          <div class="col-md-11">
-            <div class="card">
+          <div class="col-md-12">
+            <div class="card card-plain">
               <div class="card-header">
-                <h5 class="title">Directory Scanning</h5>
+                Google Maps
               </div>
               <div class="card-body">
-                <form>
-                  <div class="row">
-                    <div class="col-md-6 pr-md-1">
-                      <div class="form-group">
-                        <label>Select Tools</label>
-                        <select class="form-control" placeholder="Select Tools" value="">
-                            <option value="Ffuf">Ffuf</option>
-                            <option value="Gobuster">Gobuster</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-md-6 pl-md-1">
-                      <div class="form-group">
-                        <label for="exampleDomain">Domain <span style="color: red;">*</span></label>
-                        <input type="text" class="form-control" placeholder="example.com">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6 pl-md-1">
-                    <label for="exampleDomain">Upload wordlist file</label>
-                    <div class="form-control">
-                      <input type="file" class="form-group" placeholder="Command">
-                    </div>
-                  </div>
-                </form>
-                <!-- Command to Execute Nmap -->
-                  <div class="col-md-12 pl-md-1">
-                    <div class="form-group">
-                      <label for="exampleDomain">Command to Execute</label>
-                      <input type="text" class="form-control" placeholder="Command">
-                    </div>
-                  </div>
-                  <div class="col-md-12 pl-md-1">
-                    <div class="form-group">
-                      <label for="exampleDomain">Output Result</label>
-                      <textarea class="form-control" id="nmap" style="height:500px; color: white;" placeholder="Results" readonly></textarea>
-                    </div>
-                  </div>
-              </div>
-              <div class="card-footer">
-                <button type="submit" class="btn btn-fill btn-primary">Scan</button>
+                <div id="map" class="map"></div>
               </div>
             </div>
           </div>
-          </div>
+        </div>
       </div>
       <footer class="footer">
         <div class="container-fluid">
@@ -421,6 +393,12 @@
           $('body').removeClass('white-content');
         });
       });
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      demo.initGoogleMaps();
     });
   </script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>

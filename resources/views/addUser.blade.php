@@ -58,9 +58,9 @@
             </a>
           </li>
           <li>
-            <a href="/nmap">
+            <a href="/network">
               <i class="tim-icons icon-atom"></i>
-              <p>Nmap</p>
+              <p>Network</p>
             </a>
           </li>
           <li>
