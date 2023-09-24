@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  app:
+    build:
+      args:
+        user: sectimes
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - 8000:8000
+    working_dir: /var/www/
+    command: php artisan serve --host=0.0.0.0 --port=8000
+    volumes:
+      - ./:/var/www
+    networks:
+      - sectimes
+
+
+networks:
+  sectimes:

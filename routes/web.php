@@ -35,8 +35,8 @@ Route::group(['middleware' => 'auth'], function () {
         return view('index');
     })->name('index');
 
-    Route::get('/nmap', function () {
-        return view('nmap');
+    Route::get('/network', function () {
+        return view('network');
     });
 
     Route::get('/dirsearch', function (){
