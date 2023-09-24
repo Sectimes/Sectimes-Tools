@@ -20,6 +20,7 @@ This 'Webtool' is mainly built for easing your pentesting work by intergrating m
 - Nginx
 - Laravel
 - Composer
+- Docker (Optional)
 
 ## Installation:
 ### Manually Build 
@@ -27,14 +28,26 @@ This 'Webtool' is mainly built for easing your pentesting work by intergrating m
 ```bash
 git clone git@github.com:Sectimes/Sectimes-Tools.git
 ```
-- Build the project
+- Build the project:
 ```bash
 cd Sectimes-Tools && php artisan serve
 ```
 - By default, the project should be built on port 8000.
+- Go to `http://localhost:8000` to connect to the app.
 
 ### Build with Docker:
-- To be updated in the near future.
+(Note that the PHP version we are using in Docker is 7.4.33)
+- First, clone the project:
+```bash
+git clone git@github.com:Sectimes/Sectimes-Tools.git
+```
+- Get into the folder and build the project:
+```bash
+cd Sectimes-Tools && docker-compose up
+```
+- If things run smoothly, by default, the project would comes up on port 8000.
+- Go to `http://localhost:8000` to connect to the app.
+
 
 ## Developers:
 Many thanks to our core Developers.
