@@ -57,7 +57,7 @@ Template UI Developer: [Creative Tim](https://www.creative-tim.com).
 - Original Template Project: https://www.creative-tim.com/product/black-dashboard
 
 ## License:
-Copyright © 2013-current Sectimes Cyber [sectimescyber@gmail.com](sectimescyber@gmail.com).
+Copyright © 2023 Sectimes Cyber [sectimescyber@gmail.com](sectimescyber@gmail.com).
 
 This work is free. You can redistribute it and/or modify it under the terms of the MIT License. See the [COPYING.md](https://github.com/wallabag/wallabag/blob/master/COPYING.md) file for more details.
 
