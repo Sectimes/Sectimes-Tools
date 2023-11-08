@@ -9,7 +9,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: sectimes
     ports:
-      - 8001:3306
+      - 3306
     # networks:
     #   - sectimes
   app:
