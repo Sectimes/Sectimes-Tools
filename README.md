@@ -22,7 +22,7 @@ This 'Webtool' is mainly built for easing your pentesting work by intergrating m
 - Nginx
 - Laravel
 - Composer
-- Docker (Optional)
+- Docker (Optional) (If you don't use Docker, you may have to create mysql db yourself and config your own settings)
 
 ## Installation:
 ### Manually Build 
