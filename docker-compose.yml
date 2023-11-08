@@ -1,6 +1,19 @@
 version: "3.7"
 services:
+  db:
+    platform: linux/amd64
+    build: ./database
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sectimes
+    ports:
+      - 8001:3306
+    # networks:
+    #   - sectimes
   app:
+    links:
+      - db
     build:
       args:
         user: sectimes
@@ -14,9 +27,8 @@ services:
     command: php artisan serve --host=0.0.0.0 --port=8000
     volumes:
       - ./:/var/www
-    networks:
-      - sectimes
+    # networks:
+    #   - sectimes
 
-
-networks:
-  sectimes:
+# networks:
+#   sectimes:
