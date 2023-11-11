@@ -26,6 +26,8 @@ class TrackingEndpointController extends Controller
 
         $endpoints = $this->urlFromDOM($htmlContent);
 
+        // dd($endpoints);
+
         return view('tracking-endpoints', compact('endpoints', 'target'));
     }
 
@@ -53,29 +55,61 @@ class TrackingEndpointController extends Controller
         $endpoints = [];
 
         // Query for form tags and their action attributes
-        foreach ($xpath->query("//form[@action]") as $formElement) {
-            $endpoint = urldecode($formElement->getAttribute('action'));
+        // foreach ($xpath->query("//form[@action]") as $formElement) {
+        //     $endpoint = urldecode($formElement->getAttribute('action'));
 
-            // Add to $endpoints array only if $endpoint is not empty
-            if ($endpoint !== '') {
-                $endpoints[] = [
-                    'endpoint' => $endpoint,
-                    'tag' => 'form',
-                    'attribute' => 'action',
-                ];
-            }
-        }
+        //     // Add to $endpoints array only if $endpoint is not empty
+        //     if ($endpoint !== '') {
+        //         $endpoints[] = [
+        //             'endpoint' => $endpoint,
+        //             'tag' => 'form',
+        //             'attribute' => 'action',
+        //         ];
+        //     }
+        // }
 
         foreach ($tags as $tag) {
-            foreach ($xpath->query("//{$tag}[@href or @src or @action]") as $element) {
-                $endpoint = urldecode($element->getAttribute('href') ?? $element->getAttribute('src') ?? $element->getAttribute('action'));
+            foreach ($xpath->query("//{$tag}[@href]") as $element) {
+                $endpoint = urldecode($element->getAttribute('href'));
 
                 // Add to $endpoints array only if $endpoint is not empty, get tag and attribute from $endpoint
                 if ($endpoint !== '') {
                     $endpoints[] = [
                         'endpoint' => $endpoint,
                         'tag' => $tag,
-                        'attribute' => $element->hasAttribute('href') ? 'href' : ($element->hasAttribute('src') ? 'src' : 'action'),
+                        'attribute' => 'href',
+                    ];
+                }
+
+            }
+        }
+
+        foreach ($tags as $tag) {
+            foreach ($xpath->query("//{$tag}[@src]") as $element) {
+                $endpoint = urldecode($element->getAttribute('src'));
+
+                // Add to $endpoints array only if $endpoint is not empty, get tag and attribute from $endpoint
+                if ($endpoint !== '') {
+                    $endpoints[] = [
+                        'endpoint' => $endpoint,
+                        'tag' => $tag,
+                        'attribute' => 'src'
+                    ];
+                }
+
+            }
+        }
+
+        foreach ($tags as $tag) {
+            foreach ($xpath->query("//{$tag}[@action]") as $element) {
+                $endpoint = urldecode($element->getAttribute('action'));
+
+                // Add to $endpoints array only if $endpoint is not empty, get tag and attribute from $endpoint
+                if ($endpoint !== '') {
+                    $endpoints[] = [
+                        'endpoint' => $endpoint,
+                        'tag' => $tag,
+                        'attribute' => 'action'
                     ];
                 }
 
