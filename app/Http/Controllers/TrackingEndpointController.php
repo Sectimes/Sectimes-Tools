@@ -26,8 +26,6 @@ class TrackingEndpointController extends Controller
 
         $endpoints = $this->urlFromDOM($htmlContent);
 
-        // dd($endpoints);
-
         return view('tracking-endpoints', compact('endpoints', 'target'));
     }
 
@@ -53,20 +51,6 @@ class TrackingEndpointController extends Controller
             'td', 'template', 'textarea', 'tfoot', 'th', 'thead', 'time', 'title', 'tr', 'track', 'u', 'ul', 'var', 'video', 'wbr'
         ];
         $endpoints = [];
-
-        // Query for form tags and their action attributes
-        // foreach ($xpath->query("//form[@action]") as $formElement) {
-        //     $endpoint = urldecode($formElement->getAttribute('action'));
-
-        //     // Add to $endpoints array only if $endpoint is not empty
-        //     if ($endpoint !== '') {
-        //         $endpoints[] = [
-        //             'endpoint' => $endpoint,
-        //             'tag' => 'form',
-        //             'attribute' => 'action',
-        //         ];
-        //     }
-        // }
 
         foreach ($tags as $tag) {
             foreach ($xpath->query("//{$tag}[@href]") as $element) {
