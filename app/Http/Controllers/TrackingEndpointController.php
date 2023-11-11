@@ -51,14 +51,33 @@ class TrackingEndpointController extends Controller
             'td', 'template', 'textarea', 'tfoot', 'th', 'thead', 'time', 'title', 'tr', 'track', 'u', 'ul', 'var', 'video', 'wbr'
         ];
         $endpoints = [];
+
+        // Query for form tags and their action attributes
+        foreach ($xpath->query("//form[@action]") as $formElement) {
+            $endpoint = urldecode($formElement->getAttribute('action'));
+
+            // Add to $endpoints array only if $endpoint is not empty
+            if ($endpoint !== '') {
+                $endpoints[] = [
+                    'endpoint' => $endpoint,
+                    'tag' => 'form',
+                    'attribute' => 'action',
+                ];
+            }
+        }
+
         foreach ($tags as $tag) {
             foreach ($xpath->query("//{$tag}[@href or @src or @action]") as $element) {
                 $endpoint = urldecode($element->getAttribute('href') ?? $element->getAttribute('src') ?? $element->getAttribute('action'));
 
-                // Add to $endpoints array only if $endpoint is not empty
+                // Add to $endpoints array only if $endpoint is not empty, get tag and attribute from $endpoint
                 if ($endpoint !== '') {
-                $endpoints[] = $endpoint;
-        }
+                    $endpoints[] = [
+                        'endpoint' => $endpoint,
+                        'tag' => $tag,
+                        'attribute' => $element->hasAttribute('href') ? 'href' : ($element->hasAttribute('src') ? 'src' : 'action'),
+                    ];
+                }
 
             }
         }

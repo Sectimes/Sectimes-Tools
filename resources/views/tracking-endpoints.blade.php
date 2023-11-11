@@ -178,7 +178,7 @@
           <div class="col-md-11">
             <div class="card">
               <div class="card-header">
-                <h5 class="title">Tracking Endpoints Tool</h5>
+                <h3 class="title">Tracking Endpoints Tool</h3>
               </div>
               <div class="card-body">
                 <form action="/tracking-endpoints" method="POST">
@@ -186,17 +186,59 @@
                 <!-- Target to track endpoint-->
                 <div class="col-md-12 pl-md-1">
                     <div class="form-group">
-                      <label for="exampleDomain">Target URL</label>
+                      <p class="text-primary">Target URL</p>
                       <input type="text" class="form-control" placeholder="Ex: https://target-url.com/" name="target-url" id="target-url" required>
                     </div>
                   </div>
+                  <br>
                   <div class="col-md-12 pl-md-1">
+                    <div class="form-group">
+                        @isset($target)
+                            <p class="text-success">Output Result of {{ $target ?? '' }}</p>
+                        @else
+                            <p class="text-info">Output Result of {{ $target ?? '' }}</p>
+                        @endisset
+                    </div>
+                </div>
+                  <table class="table tablesorter" id="">
+                    <thead class=" text-primary">
+                      <tr>
+                        <th>
+                          Endpoint / URL
+                        </th>
+                        <th>
+                          Source Tag
+                        </th>
+                        <th>
+                          Attribute
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @isset($endpoints)
+                        @foreach ($endpoints as $endpoint)
+                          <tr>
+                            <td>
+                              {{ $endpoint['endpoint'] }}
+                            </td>
+                            <td>
+                              {{ $endpoint['tag'] }}
+                            </td>
+                            <td>
+                              {{ $endpoint['attribute'] }}
+                            </td>
+                          </tr>
+                        @endforeach
+                    @endisset
+                    </tbody>
+                  </table>
+                  {{-- <div class="col-md-12 pl-md-1">
                     <div class="form-group">
                       <label for="exampleDomain">Output Result of {{ $target ?? '' }}</label>
                       <textarea class="form-control" id="response-result" style="height:500px; color: white;" placeholder="Results" readonly>@isset($endpoints) @foreach ($endpoints as $endpoint) {{ $endpoint . PHP_EOL }} @endforeach @else @endisset</textarea>
                       <!-- Add PHP_EOL to enter a newline after listing a URL -->
                     </div>
-                  </div>
+                  </div> --}}
               </div>
               <div class="card-footer">
                 <button type="submit" class="btn btn-fill btn-primary">Submit</button>
