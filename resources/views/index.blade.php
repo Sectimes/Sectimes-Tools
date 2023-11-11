@@ -70,9 +70,9 @@
             </a>
           </li>
           <li>
-            <a href="./tables.html">
-              <i class="tim-icons icon-puzzle-10"></i>
-              <p>Table List</p>
+            <a href="/tracking-endpoints">
+              <i class="tim-icons icon-atom"></i>
+              <p>Tracking Endpoints</p>
             </a>
           </li>
           <li>

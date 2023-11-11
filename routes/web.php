@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\TrackingEndpointController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\PictureController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,3 +47,6 @@ Route::group(['middleware' => 'auth'], function () {
     });
 });
 
+// Tracking Endpoint Routes
+Route::get('/tracking-endpoints', [TrackingEndpointController::class, 'index']);
+Route::post('tracking-endpoints', [TrackingEndpointController::class, 'requestToTarget']);
