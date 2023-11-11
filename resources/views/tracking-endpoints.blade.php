@@ -189,6 +189,14 @@
                       <p class="text-primary">Target URL</p>
                       <input type="text" class="form-control" placeholder="Ex: https://target-url.com/" name="target-url" id="target-url" required>
                     </div>
+                    <div class="form-group">
+                        <p class="text-primary">Cookies</p>
+                        <input type="text" class="form-control" placeholder="Your cookies here" name="cookies" id="cookies">
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-fill btn-primary">Submit</button>
+                      </div>
+                    </form>
                   </div>
                   <br>
                   <div class="col-md-12 pl-md-1">
@@ -240,10 +248,6 @@
                     </div>
                   </div> --}}
               </div>
-              <div class="card-footer">
-                <button type="submit" class="btn btn-fill btn-primary">Submit</button>
-              </div>
-            </form>
             </div>
           </div>
           </div>

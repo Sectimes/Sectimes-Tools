@@ -17,12 +17,18 @@ class TrackingEndpointController extends Controller
     
     public function requestToTarget() {
         $target = request('target-url');
+        $cookies = request('cookies');
 
-        // Create a new Guzzle Client
-        $client = new Client();
+        if (isset($cookies)) {
+            $result = followRedirectsWithCookies($target, $cookies);
+            $htmlContent = $result['response'];
+        } else {
+            // Create a new Guzzle Client
+            $client = new Client();
 
-        $response = $client->get($target);
-        $htmlContent = $response->getBody()->getContents();
+            $response = $client->get($target);
+            $htmlContent = $response->getBody()->getContents();
+        }
 
         $endpoints = $this->urlFromDOM($htmlContent);
 
@@ -102,4 +108,23 @@ class TrackingEndpointController extends Controller
 
         return $endpoints;
     }
+}
+
+function followRedirectsWithCookies($url, $cookies) {
+    $ch = curl_init($url);
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Follow all redirections
+    curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
+    curl_setopt($ch, CURLOPT_COOKIE, $cookies); // Set the cookies
+
+    $response = curl_exec($ch);
+    $finalUrl = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
+
+    curl_close($ch);
+
+    return [
+        'url' => $finalUrl,
+        'response' => $response,
+    ];
 }
