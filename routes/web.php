@@ -59,3 +59,4 @@ Route::post('/fuzzing', [FuzzingEndpointController::class, 'fuzz']);
 
 // Target Scanned Routes
 Route::get('/target-scanned', [TargetScannedController::class, 'index']);
+Route::get('/target-scanned/{target_id}', [TargetScannedController::class,'show']);

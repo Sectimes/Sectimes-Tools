@@ -188,22 +188,46 @@
                     </div>
                 </div>
                   <table class="table tablesorter" id="">
+                    @if (@isset($endpointsScanned))
                     <thead class=" text-primary">
-                      <tr>
-                        <th style="width: 10%;">
-                          ID
-                        </th>
-                        <th style="width: 60%">
-                          Target
-                        </th>
-                        <th style="width: 15%;">
-                          Details
-                        </th>
-                        <th style="width: 15%;">
-                          Delete
-                        </th>
-                      </tr>
-                    </thead>
+                        <tr>
+                          <th style="width: 10%;">
+                            ID
+                          </th>
+                          <th style="width: 50%">
+                            Target
+                          </th>
+                          <th style="width: 10%;">
+                            Status
+                          </th>
+                          <th style="width: 10%;">
+                            Tag
+                          </th>
+                          <th style="width: 10%;">
+                            Attribute
+                          </th>
+                          <th style="width: 10%;">
+                          </th>
+                        </tr>
+                      </thead>
+                    @else
+                        <thead class=" text-primary">
+                            <tr>
+                              <th style="width: 10%;">
+                                ID
+                              </th>
+                              <th style="width: 60%">
+                                Target
+                              </th>
+                              <th style="width: 15%;">
+                                Details
+                              </th>
+                              <th style="width: 15%;">
+                                Delete
+                              </th>
+                            </tr>
+                        </thead>
+                    @endif
                     <tbody>
                     @isset($targets)
                         @foreach ($targets as $target)
@@ -215,7 +239,7 @@
                               {{ $target->target }}
                             </td>
                             <td style="width: 15%;">
-                              <img src="{{ asset('img/details.png') }}" style="width: 15%; height: 15%;"/>
+                              <a href="/target-scanned/{{ $target->id }}"><img src="{{ asset('img/details.png') }}" style="width: 15%; height: 15%;"/></a>
                             </td>
                             <td style="width: 15%;">
                               <img src="{{ asset('img/recycle-bin.png') }}" style="width: 15%; height: 15%;"/>
@@ -223,6 +247,30 @@
                           </tr>
                         @endforeach
                     @endisset
+                    @isset($endpointsScanned)
+                    @foreach ($endpointsScanned as $epScanned)
+                      <tr>
+                        <td style="width: 10%;">
+                          {{ $epScanned['id'] }}
+                        </td>
+                        <td style="width: 50%">
+                          {{ $epScanned['endpoint'] }}
+                        </td>
+                        <td style="width: 10%;">
+                          {{ $epScanned['status'] }}
+                        </td>
+                        <td style="width: 10%;">
+                          {{ $epScanned['tag'] }}
+                        </td>
+                        <td style="width: 10%;">
+                          {{ $epScanned['attribute'] }}
+                        </td>
+                        <td style="width: 10%;">
+                          <a href="/fuzzing?target_id={{ $epScanned['endpoint'] }}"><img src="{{ asset('img/forward.png') }}" style="width: 15%; height: 15%;"/></a>
+                        </td>
+                      </tr>
+                    @endforeach
+                @endisset
                     </tbody>
                   </table>
                   {{-- <div class="col-md-12 pl-md-1">

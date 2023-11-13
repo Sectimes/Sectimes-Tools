@@ -30,8 +30,11 @@ class FuzzingEndpointController extends Controller
         return $processOutput;
     }
 
-    public function index() {
-        return view('fuzzing-endpoints');
+    public function index(Request $request) {
+        // Render fuzzing-endpoints.blade.php
+        $target_id = $request->query('target_id');
+
+        return view('fuzzing-endpoints', compact('target_id'));
     }
 
     public function fuzz(Request $request) {
