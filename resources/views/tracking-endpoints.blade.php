@@ -72,7 +72,7 @@
           <li>
             <a href="./tables.html">
               <i class="tim-icons icon-puzzle-10"></i>
-              <p>Table List</p>
+              <p>Tracking Endpoints</p>
             </a>
           </li>
           <li>
@@ -108,7 +108,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="/network">Network Scanning</a>
+            <a class="navbar-brand" href="/network">Tracking Endpoints</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
