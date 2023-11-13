@@ -16,7 +16,7 @@ class CreatesTrackingEndpointResultsTable extends Migration
         Schema::create('tracking_endpoint_results', function (Blueprint $table) {
             $table->id();
             $table->string('target')->index(); // Indexing the foreign key for better performance
-            $table->string('endpoint');
+            $table->string('endpoint', 500);
             $table->string('status');
             $table->string('tag');
             $table->string('attribute');
