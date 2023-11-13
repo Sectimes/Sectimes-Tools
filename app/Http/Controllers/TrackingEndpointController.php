@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DOMXPath;
+use Exception;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use DOMDocument;
@@ -20,7 +21,7 @@ class TrackingEndpointController extends Controller
         $cookies = request('cookies');
 
         if (isset($cookies)) {
-            $result = followRedirectsWithCookies($target, $cookies);
+            $result = $this->followRedirectsWithCookies($target, $cookies);
             $htmlContent = $result['response'];
         } else {
             // Create a new Guzzle Client
@@ -30,7 +31,7 @@ class TrackingEndpointController extends Controller
             $htmlContent = $response->getBody()->getContents();
         }
 
-        $endpoints = $this->urlFromDOM($htmlContent);
+        $endpoints = $this->urlFromDOM($target, $htmlContent);
 
         return view('tracking-endpoints', compact('endpoints', 'target'));
     }
@@ -41,7 +42,7 @@ class TrackingEndpointController extends Controller
         ] );
     }
 
-    public function urlFromDOM($htmlContent) {
+    public function urlFromDOM($target, $htmlContent) {
         $dom = new DOMDocument();
         @$dom->loadHTML($htmlContent); // using @ in other to suppress the warnings, as `loadHTML()` may generate warnings for malformed HTML
 
@@ -68,6 +69,7 @@ class TrackingEndpointController extends Controller
                         'endpoint' => $endpoint,
                         'tag' => $tag,
                         'attribute' => 'href',
+                        'status' => $this->checkStatusCode($target, $endpoint)
                     ];
                 }
 
@@ -83,7 +85,8 @@ class TrackingEndpointController extends Controller
                     $endpoints[] = [
                         'endpoint' => $endpoint,
                         'tag' => $tag,
-                        'attribute' => 'src'
+                        'attribute' => 'src',
+                        'status' => $this->checkStatusCode($target, $endpoint)
                     ];
                 }
 
@@ -99,7 +102,8 @@ class TrackingEndpointController extends Controller
                     $endpoints[] = [
                         'endpoint' => $endpoint,
                         'tag' => $tag,
-                        'attribute' => 'action'
+                        'attribute' => 'action',
+                        'status' => $this->checkStatusCode($target, $endpoint)
                     ];
                 }
 
@@ -108,23 +112,42 @@ class TrackingEndpointController extends Controller
 
         return $endpoints;
     }
-}
 
-function followRedirectsWithCookies($url, $cookies) {
-    $ch = curl_init($url);
+    public function checkStatusCode($target, $endpoint) {
+        // Check status code of each URI / URL / Endpoints we got
+    
+        $client = new Client();
+        try {
+            if (strpos($endpoint, 'https') === 0 or strpos($endpoint, 'http') === 0) {
+                $response = $client->get($endpoint);
+                $statusCode = $response->getStatusCode();
+            } else {
+                $response = $client->get($target . "/" . $endpoint);
+                $statusCode = $response->getStatusCode();
+            }
+        } catch (Exception $e) {
+            $statusCode = "No connection";
+        }
+        
+        return $statusCode;
+    }
 
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Follow all redirections
-    curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
-    curl_setopt($ch, CURLOPT_COOKIE, $cookies); // Set the cookies
-
-    $response = curl_exec($ch);
-    $finalUrl = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
-
-    curl_close($ch);
-
-    return [
-        'url' => $finalUrl,
-        'response' => $response,
-    ];
+    public function followRedirectsWithCookies($url, $cookies) {
+        $ch = curl_init($url);
+    
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Follow all redirections
+        curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
+        curl_setopt($ch, CURLOPT_COOKIE, $cookies); // Set the cookies
+    
+        $response = curl_exec($ch);
+        $finalUrl = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
+    
+        curl_close($ch);
+    
+        return [
+            'url' => $finalUrl,
+            'response' => $response,
+        ];
+    }
 }

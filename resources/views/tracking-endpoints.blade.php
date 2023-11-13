@@ -215,6 +215,9 @@
                           Endpoint / URL
                         </th>
                         <th>
+                          Status Code
+                        </th>
+                        <th>
                           Source Tag
                         </th>
                         <th>
@@ -227,7 +230,10 @@
                         @foreach ($endpoints as $endpoint)
                           <tr>
                             <td>
-                              <a href="/fuzzing">{{ $endpoint['endpoint'] }}</a>
+                              {{ $endpoint['endpoint'] }}
+                            </td>
+                            <td>
+                              <p class="@if ($endpoint['status'] == 200) text-success @elseif (strpos($endpoint['status'], '3') === 0) text-warning @elseif (strpos($endpoint['status'], '5') === 0) text-danger @elseif ($endpoint['status'] == 'No connection') text-danger" @endif>{{ $endpoint['status'] }}</p>
                             </td>
                             <td>
                               {{ $endpoint['tag'] }}
