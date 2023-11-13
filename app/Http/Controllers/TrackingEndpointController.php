@@ -13,8 +13,7 @@ use DOMDocument;
 class TrackingEndpointController extends Controller
 {
     public function index() {
-        // Render a list of a resource.
-
+        // Render tracking-endpoints.blade.php
         return view('tracking-endpoints');
     }
     
