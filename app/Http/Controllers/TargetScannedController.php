@@ -9,6 +9,8 @@ use App\Models\TrackingEndpointTarget;
 class TargetScannedController extends Controller
 {
     public function index() {
-        return view('target-scanned');
+        $targets = TrackingEndpointTarget::all();
+
+        return view('target-scanned', compact('targets'));
     }
 }

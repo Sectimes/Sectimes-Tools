@@ -108,7 +108,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="/network">Tracking Endpoints</a>
+            <a class="navbar-brand" href="/network">Target Scanned</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -178,51 +178,47 @@
           <div class="col-md-11">
             <div class="card">
               <div class="card-header">
-                <h3 class="title">Tracking Endpoints Tool</h3>
+                <h3 class="title">Target Scanned Listing</h3>
               </div>
               <div class="card-body">
                   <br>
                   <div class="col-md-12 pl-md-1">
                     <div class="form-group">
-                        @isset($target)
-                            <p class="text-success">Output Result of {{ $target ?? '' }}</p>
-                        @else
-                            <p class="text-info">Output Result of {{ $target ?? '' }}</p>
-                        @endisset
+                        <p class="text-info">All targets scanned:</p>
                     </div>
                 </div>
                   <table class="table tablesorter" id="">
                     <thead class=" text-primary">
                       <tr>
-                        <th>
+                        <th style="width: 10%;">
                           ID
                         </th>
-                        <th>
+                        <th style="width: 60%">
                           Target
                         </th>
-                        <th>
+                        <th style="width: 15%;">
                           Details
                         </th>
-                        <th>
+                        <th style="width: 15%;">
                           Delete
                         </th>
                       </tr>
                     </thead>
                     <tbody>
-                    @isset($endpoints)
-                        @foreach ($endpoints as $endpoint)
+                    @isset($targets)
+                        @foreach ($targets as $target)
                           <tr>
-                            <td>
-                              {{ $endpoint['endpoint'] }}
+                            <td style="width: 10%;">
+                              {{ $target->id }}
                             </td>
-                            <td>
-                              <p class="@if ($endpoint['status'] == 200) text-success @elseif (strpos($endpoint['status'], '3') === 0) text-warning @elseif (strpos($endpoint['status'], '5') === 0) text-danger @elseif ($endpoint['status'] == 'No connection') text-danger" @endif>{{ $endpoint['status'] }}</p>
+                            <td style="width: 60%">
+                              {{ $target->target }}
                             </td>
-                            <td>
-                              {{ $endpoint['tag'] }}
+                            <td style="width: 15%;">
+                              <img src="{{ asset('img/details.png') }}" style="width: 15%; height: 15%;"/>
                             </td>
-                            <td>
-                              {{ $endpoint['attribute'] }}
+                            <td style="width: 15%;">
+                              <img src="{{ asset('img/recycle-bin.png') }}" style="width: 15%; height: 15%;"/>
                             </td>
                           </tr>
                         @endforeach
