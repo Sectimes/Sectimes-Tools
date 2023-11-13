@@ -55,3 +55,8 @@ Route::post('tracking-endpoints', [TrackingEndpointController::class, 'requestTo
 // Fuzzing Endpoint Routes
 Route::get('/fuzzing', [FuzzingEndpointController::class, 'index']);
 Route::post('/fuzzing', [FuzzingEndpointController::class, 'fuzz']);
+
+// Target Scanned Routes
+Route::get('/target-scanned', function() {
+    return view('target-scanned');
+});

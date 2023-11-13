@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TrackingEndpointResults;
+use App\Models\TrackingEndpointTarget;
 use DOMXPath;
 use Exception;
 use Illuminate\Http\Request;
@@ -20,6 +22,12 @@ class TrackingEndpointController extends Controller
         $target = request('target-url');
         $cookies = request('cookies');
 
+        // Add target URL to tracking_endpoint_target table
+        TrackingEndpointTarget::updateOrCreate(
+            ['target' => $target],
+            ['num_of_results' => null]
+        );
+
         if (isset($cookies)) {
             $result = $this->followRedirectsWithCookies($target, $cookies);
             $htmlContent = $result['response'];
@@ -32,6 +40,17 @@ class TrackingEndpointController extends Controller
         }
 
         $endpoints = $this->urlFromDOM($target, $htmlContent);
+
+        // Add results into tracking_endpoint_results table
+        foreach ($endpoints as $endpoint) {
+            TrackingEndpointResults::updateOrCreate([
+                'endpoint' => $endpoint['endpoint'],
+                'status' => $endpoint['status'],
+                'tag' => $endpoint['tag'],
+                'attribute' => $endpoint['attribute'],
+                'target' => $target
+            ]);
+        }
 
         return view('tracking-endpoints', compact('endpoints', 'target'));
     }
