@@ -229,45 +229,37 @@
                 <br>
                 <div class="col-md-12 pl-md-1">
                     <div class="form-group">
-                        @isset($target)
-                            <p class="text-success">Output Result of {{ $target ?? '' }}</p>
+                        @isset($endpoint)
+                            <p class="text-success">Output Result of {{ $endpoint ?? '' }}</p>
                         @else
-                            <p class="text-info">Output Result of {{ $target ?? '' }}</p>
+                            <p class="text-info">Output Result of {{ $endpoint ?? '' }}</p>
                         @endisset
                     </div>
                 </div>
-                  <!-- <table class="table tablesorter" id="">
+                  <table class="table tablesorter" id="">
                     <thead class=" text-primary">
                       <tr>
                         <th>
                           Endpoint / URL
                         </th>
                         <th>
-                          Source Tag
-                        </th>
-                        <th>
-                          Attribute
+                          Result
                         </th>
                       </tr>
                     </thead>
                     <tbody>
-                    @isset($endpoints)
-                        @foreach ($endpoints as $endpoint)
-                          <tr>
-                            <td>
-                              <a href="/fuzz">{{ $endpoint['endpoint'] }}</a>
-                            </td>
-                            <td>
-                              {{ $endpoint['tag'] }}
-                            </td>
-                            <td>
-                              {{ $endpoint['attribute'] }}
-                            </td>
-                          </tr>
-                        @endforeach
-                    @endisset
+                      @isset($filename_endpoint)
+                      <tr>
+                        <td>
+                          {{ $endpoint }}
+                        </td>
+                        <td>
+                          <a href="{{ 'result-ffuf/' . $filename_endpoint . '.html' }}">{{ $filename_endpoint . '.html' }}</a>
+                        </td>
+                      </tr>
+                      @endisset
                     </tbody>
-                  </table> -->
+                  </table>
               </div>
             </div>
           </div>
