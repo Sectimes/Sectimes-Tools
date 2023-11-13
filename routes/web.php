@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TrackingEndpointController;
+use App\Http\Controllers\FuzzingEndpointController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
@@ -50,3 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
 // Tracking Endpoint Routes
 Route::get('/tracking-endpoints', [TrackingEndpointController::class, 'index']);
 Route::post('tracking-endpoints', [TrackingEndpointController::class, 'requestToTarget']);
+
+// Fuzzing Endpoint Routes
+Route::get('/fuzzing', [FuzzingEndpointController::class, 'index']);
+Route::post('/fuzzing', [FuzzingEndpointController::class, 'fuzz']);
