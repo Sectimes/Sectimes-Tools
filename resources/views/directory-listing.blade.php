@@ -108,7 +108,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="/network">Network Scanning</a>
+            <a class="navbar-brand" href="/network">Filenames Listing</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -178,115 +178,58 @@
           <div class="col-md-11">
             <div class="card">
               <div class="card-header">
-                <h3 class="title">Fuzzing Endpoints Tool</h3>
+                <h3 class="title">Filenames List</h3>
               </div>
               <div class="card-body">
                 <form action="/fuzzing" method="POST">
                 <!-- Target to track endpoint-->
                     <div class="col-md-12 pl-md-1">
                         <div class="form-group">
-                            <label>Endpoint</label>
-                              <input type="text" class="form-control" name="endpoint" id="endpoint" value="{{ $target_id ?? '' }}">
+                            <div class="table-responsive">
+                                <table class="table tablesorter " id="">
+                                  <thead class=" text-primary">
+                                    <tr>
+                                      <th>
+                                        Request filenames
+                                      </th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                        @foreach ($filenames as $filename)
+                                            <tr>
+                                                <td>
+                                                  <a href="/listing/{{ $filename }}">{{ $filename }}</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                  </tbody>
+                                </table>
+                              </div>
+                              @if (@isset($foldernames))
+                              <div class="table-responsive">
+                                <table class="table tablesorter " id="">
+                                  <thead class=" text-primary">
+                                    <tr>
+                                      <th>
+                                        Request foldernames
+                                      </th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                        @foreach ($foldernames as $foldername)
+                                            <tr>
+                                                <td>
+                                                  <a href="/listing/{{ $foldername }}">{{ $foldername }}</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                  </tbody>
+                                </table>
+                              </div>
+                              @endif
                         </div>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" name="reqresp" id="reqresp">
-                                  <span class="form-check-sign">
-                                    <h6 class="title"><span class="check">Get Request / Response</span></h6>
-                                  </span>
-                          </label>
-                        </div>
-                      <style>
-                        /* Solid border */
-                        hr.solid {
-                          border-top: 3px solid 	#696969;
-                        }
-                        </style>
-                        
-                        <hr class="solid">
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" name="wordlist[]" value="SQLi">
-                                    <span class="form-check-sign">
-                                        <span class="check">SQLi wordlist</span>
-                                    </span>
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" name="wordlist[]" value="XSS">
-                                    <span class="form-check-sign">
-                                        <span class="check">XSS wordlist</span>
-                                    </span>
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" name="wordlist[]" value="CMDi">
-                                    <span class="form-check-sign">
-                                        <span class="check">Command injection wordlist</span>
-                                    </span>
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" name="wordlist[]" value="DIR">
-                                    <span class="form-check-sign">
-                                        <span class="check">Dir wordlist</span>
-                                    </span>
-                            </label>
-                        </div>
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-fill btn-primary">Submit</button>
-                        </div>
-                    </div>
-                @csrf
-                </form>
-                <br>
-                <div class="col-md-12 pl-md-1">
-                    <div class="form-group">
-                        @isset($endpoint)
-                            <p class="text-success">Output Result of {{ $endpoint ?? '' }}</p>
-                        @else
-                            <p class="text-info">Output Result of {{ $endpoint ?? '' }}</p>
-                        @endisset
                     </div>
                 </div>
-                  <table class="table tablesorter" id="">
-                    <thead class=" text-primary">
-                      <tr>
-                        <th>
-                          Endpoint / URL
-                        </th>
-                        <th>
-                          Result
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @isset($filename_endpoint)
-                      <tr>
-                        <td>
-                          {{ $endpoint }}
-                        </td>
-                        <td>
-                          <a href="{{ '/result-ffuf/' . $filename_endpoint . '.html' }}">{{ $filename_endpoint . '.html' }}</a>
-                        </td>
-                      </tr>
-                      @endisset
-                      @if ($checked === 'true')
-                      <tr>
-                        <td>
-                          {{ $endpoint ?? '' }} {{ $checked }}
-                        </td>
-                        <td>
-                          <a href="{{ '/listing/' . $hostname }}">{{ '/listing/' . $hostname }}</a>
-                        </td>
-                      </tr>
-                      @endisset
-                    </tbody>
-                  </table>
-              </div>
             </div>
           </div>
           </div>

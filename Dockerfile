@@ -51,6 +51,5 @@ COPY . /var/www
 # Set working directory
 WORKDIR /var/www
 
-RUN php artisan migrate
 
 USER $user

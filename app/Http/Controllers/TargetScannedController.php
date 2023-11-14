@@ -17,7 +17,6 @@ class TargetScannedController extends Controller
     public function show(TrackingEndpointResults $target_id) {
         $targetScanned = $target_id->target;
         $endpointsScanned = TrackingEndpointResults::where('target', $targetScanned)->get();
-        // dd($endpointsScanned);
         
         return view('target-scanned', compact('endpointsScanned'));
     }

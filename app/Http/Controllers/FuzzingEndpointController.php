@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Symfony\Component\Process\Process;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
 
 class FuzzingEndpointController extends Controller
 {
+    private static $counter = 1;
+
     public static function execute($cmd): string
     {
         $process = Process::fromShellCommandline($cmd);
@@ -20,34 +24,101 @@ class FuzzingEndpointController extends Controller
         $process->setTimeout(null)
             ->run($captureOutput);
 
-        if ($process->getExitCode()) {
-            $exception = new ShellCommandFailedException($cmd . " - " . $processOutput);
-            report($exception);
+        // if ($process->getExitCode()) {
+        //     $exception = new ShellCommandFailedException($cmd . " - " . $processOutput);
+        //     report($exception);
 
-            throw $exception;
-        }
+        //     throw $exception;
+        // }
 
         return $processOutput;
     }
 
     public function index(Request $request) {
         // Render fuzzing-endpoints.blade.php
+        $checked = '';
+        $filename_endpoint = '';
         $target_id = $request->query('target_id');
 
-        return view('fuzzing-endpoints', compact('target_id'));
+        return view('fuzzing-endpoints', compact('target_id', 'checked', 'filename_endpoint'));
     }
 
     public function fuzz(Request $request) {
         $input = $request->all();
         $endpoint = $request->input('endpoint');
         $wordlists = $request->input('wordlist');
-        $filename_endpoint = md5($endpoint);
 
         $endpoint_fuzz = preg_replace('/=([^&]+)/', '=FUZZ', $endpoint);
-        // $endpoint_fuzz = "http://csid.hcmtelecom.vn/gian-hang?p_p_id=FUZZ&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_pos=3&p_p_col_count=12&_dsgianhangclient_WAR_hcmqldoanhnghiepportlet_nganhngheId=4&_dsgianhangclient_WAR_hcmqldoanhnghiepportlet_mvcPath=/html/client/DsGianHang/view.jsp&_dsgianhangclient_WAR_hcmqldoanhnghiepportlet_nganhngheTen=Cơ khí - Điện";
 
-        $result_ffuf = $this->execute("ffuf -w '../wordlist/SQLi/ALL.txt' -u '" . $endpoint_fuzz . "' -of html -o " . $filename_endpoint . ".html ; mv " . $filename_endpoint . ".html result-ffuf/" . $filename_endpoint . ".html");
+        // Parsel URL to get only the hostname and check if we can extract the hostname or not
+        $parseUrl = parse_url($endpoint);
+        if (isset($parseUrl['host'])) {
+            $hostname = $parseUrl['host'];
+        } else {
+            $hostname = "default-hostname-" . self::$counter;
+            self::$counter++;
+        }
+        
+        // Condition on reqresp box
+        $reqrespChecked = $request->has('reqresp');
+        $checked = '';
+        $filename_endpoint = null;
 
-        return view('fuzzing-endpoints', compact('endpoint', 'filename_endpoint'));
+        if ($reqrespChecked) {
+            $checked = 'true';
+            $result_ffuf = $this->execute("ffuf -w '" .base_path('wordlist') . "/SQLi/ALL.txt' -u '$endpoint_fuzz' -od " . base_path('public') . "/reqresp/$hostname/");
+        } else {
+            $filename_endpoint = $hostname . "-" . md5($endpoint);
+            $checked = 'false';
+            $result_ffuf = $this->execute("ffuf -w '" .base_path('wordlist') . "/SQLi/ALL.txt' -u '$endpoint_fuzz' -of html -o " . base_path('public') . "/result-ffuf/$filename_endpoint");
+        }
+
+        return view('fuzzing-endpoints', compact('endpoint', 'filename_endpoint', 'hostname', 'checked'));
+    }
+
+    public function reqrespListing() {
+        $directory = public_path('reqresp');
+
+        if (File::isDirectory($directory)) {
+            $files = File::files($directory);
+            $folders = File::directories($directory);
+    
+            $filenames = array_map(function ($file) {
+                return pathinfo($file)['basename'];
+            }, $files);
+            $foldernames = array_map(function ($folder) {
+                return pathinfo($folder)['basename'];
+            }, $folders);
+
+            return view('directory-listing', compact('filenames', 'foldernames'));
+        } else {
+            abort(404);
+        }
+    }
+
+    public function reqrespSpecificHostnameListing($hostname) {
+        $directory = public_path('reqresp/' . $hostname);
+
+        if (File::isDirectory($directory)) {
+            $files = File::files($directory);
+    
+            $filenames = array_map(function ($file) {
+                return pathinfo($file)['basename'];
+            }, $files);
+
+            return view('directory-listing', compact('filenames'));
+        } else {
+            abort(404);
+        }
+    }
+
+    public function reqrespSpecificFilenameListing($filename) {
+        $filePath = public_path('reqresp/' . $filename);
+
+        if (file_exists($filePath)) {
+            return response()->file($filePath);
+        } else {
+            abort(404);
+        }
     }
 }

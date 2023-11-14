@@ -31,11 +31,11 @@ Route::get('/login', function () {
 Route::post('/login', [LoginController::class => 'CheckLogin']);
 
 Route::group(['middleware' => 'auth'], function () {
-    // Route::group(['middleware' => 'author', 'prefix' => 'admin'], function () {
-    //     Route::get('/add', function () {
-    //         return view('addUser');
-    //     });
-    // });
+    Route::group(['middleware' => 'author', 'prefix' => 'admin'], function () {
+        Route::get('/add', function () {
+            return view('addUser');
+        });
+    });
 
     Route::get('/', function () {
         return view('index');
@@ -64,3 +64,8 @@ Route::get('/target-scanned/{target_id}', [TargetScannedController::class,'show'
 
 // Burp Suite Connection Routes
 Route::get('/burp', [BurpSuiteController::class,'burpProxyConnect']);
+
+// Public listing reqresp routes
+Route::get('/listing', [FuzzingEndpointController::class, 'reqrespListing']);
+Route::get('/listing/{filename}', [FuzzingEndpointController::class, 'reqrespSpecificFilenameListing']);
+Route::get('/listing/{hostname}', [FuzzingEndpointController::class, 'reqrespSpecificHostnameListing']);
