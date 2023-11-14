@@ -186,9 +186,7 @@
                     <div class="col-md-12 pl-md-1">
                         <div class="form-group">
                             <label>Endpoint</label>
-                            @isset($target_id)
-                              <input type="text" class="form-control" name="endpoint" id="endpoint" value="{{ $target_id }}">
-                            @endisset
+                              <input type="text" class="form-control" name="endpoint" id="endpoint" value="{{ $target_id ?? '' }}">
                         </div>
                         <div class="form-check">
                             <label class="form-check-label">

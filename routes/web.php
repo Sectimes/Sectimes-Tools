@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PictureController;
+use App\Http\Controllers\BurpSuiteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,3 +61,6 @@ Route::post('/fuzzing', [FuzzingEndpointController::class, 'fuzz']);
 // Target Scanned Routes
 Route::get('/target-scanned', [TargetScannedController::class, 'index']);
 Route::get('/target-scanned/{target_id}', [TargetScannedController::class,'show']);
+
+// Burp Suite Connection Routes
+Route::get('/burp', [BurpSuiteController::class,'burpProxyConnect']);
