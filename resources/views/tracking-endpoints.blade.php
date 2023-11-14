@@ -241,9 +241,6 @@
                             <td>
                               {{ $endpoint['attribute'] }}
                             </td>
-                            <td>
-                              <img src="{{ asset('img/forward.png') }}" style="width: 10%; height: 10%;"/><
-                            </td>
                           </tr>
                         @endforeach
                     @endisset
