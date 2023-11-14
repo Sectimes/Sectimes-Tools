@@ -31,11 +31,11 @@ Route::get('/login', function () {
 Route::post('/login', [LoginController::class => 'CheckLogin']);
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::group(['middleware' => 'author', 'prefix' => 'admin'], function () {
-        Route::get('/add', function () {
-            return view('addUser');
-        });
-    });
+    // Route::group(['middleware' => 'author', 'prefix' => 'admin'], function () {
+    //     Route::get('/add', function () {
+    //         return view('addUser');
+    //     });
+    // });
 
     Route::get('/', function () {
         return view('index');
