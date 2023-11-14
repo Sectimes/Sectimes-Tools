@@ -70,7 +70,7 @@ class FuzzingEndpointController extends Controller
         } else {
             $filename_endpoint = $hostname . "-" . md5($endpoint);
             $checked = 'false';
-            $result_ffuf = $this->execute("ffuf -w '" .base_path('wordlist') . "/SQLi/ALL.txt' -u '$endpoint_fuzz' -of html -o " . base_path('public') . "/result-ffuf/$filename_endpoint");
+            $result_ffuf = $this->execute("ffuf -w '" .base_path('wordlist') . "/SQLi/ALL.txt' -u '$endpoint_fuzz' -of html -o " . base_path('public') . "/result-ffuf/$filename_endpoint.html");
         }
 
         return view('fuzzing-endpoints', compact('endpoint', 'filename_endpoint', 'hostname', 'checked'));
