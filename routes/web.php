@@ -3,6 +3,7 @@
 use App\Http\Controllers\TargetScannedController;
 use App\Http\Controllers\TrackingEndpointController;
 use App\Http\Controllers\FuzzingEndpointController;
+use App\Http\Controllers\UpdateChartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
@@ -28,9 +29,9 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
-Route::post('/login', [LoginController::class => 'CheckLogin']);
+// Route::post('/login', [LoginController::class => 'CheckLogin']);
 
-Route::group(['middleware' => 'auth'], function () {
+// Route::group(['middleware' => 'auth'], function () {
     // Route::group(['middleware' => 'author', 'prefix' => 'admin'], function () {
     //     Route::get('/add', function () {
     //         return view('addUser');
@@ -48,7 +49,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dirsearch', function (){
         return view('dirsearch');
     });
-});
+// });
 
 // Tracking Endpoint Routes
 Route::get('/tracking-endpoints', [TrackingEndpointController::class, 'index']);

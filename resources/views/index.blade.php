@@ -51,8 +51,8 @@
           </a>
         </div>
         <ul class="nav">
-          <li class="active ">
-            <a href="./dashboard.html">
+          <li>
+            <a href="/">
               <i class="tim-icons icon-chart-pie-36"></i>
               <p>Dashboard</p>
             </a>
@@ -64,21 +64,21 @@
             </a>
           </li>
           <li>
-            <a href="./map.html">
-              <i class="tim-icons icon-pin"></i>
-              <p>Maps</p>
-            </a>
-          </li>
-          <li>
             <a href="/tracking-endpoints">
-              <i class="tim-icons icon-atom"></i>
-              <p>Tracking Endpoints</p>
+              <i class="tim-icons icon-pin"></i>
+              <p>Endpoints Tracking</p>
             </a>
           </li>
           <li>
-            <a href="./typography.html">
+            <a href="/fuzzing">
+              <i class="tim-icons icon-puzzle-10"></i>
+              <p>Fuzzing</p>
+            </a>
+          </li>
+          <li>
+            <a href="/listing">
               <i class="tim-icons icon-align-center"></i>
-              <p>Typography</p>
+              <p>Target Scanned</p>
             </a>
           </li>
           <li>
