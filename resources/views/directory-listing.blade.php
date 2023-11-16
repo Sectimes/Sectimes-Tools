@@ -198,7 +198,11 @@
                                         @foreach ($filenames as $filename)
                                             <tr>
                                                 <td>
-                                                  <a href="/listing/{{ $filename }}">{{ $filename }}</a>
+                                                @isset($hostOrFilename)
+                                                    <a href="/listing/{{ $hostOrFilename }}/{{ $filename }}">{{ $filename }}</a>
+                                                @else
+                                                    <a href="/listing/{{ $filename }}">{{ $filename }}</a>
+                                                @endisset
                                                 </td>
                                             </tr>
                                         @endforeach

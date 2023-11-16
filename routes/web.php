@@ -68,5 +68,5 @@ Route::get('/burp', [BurpSuiteController::class,'burpProxyConnect']);
 
 // Public listing reqresp routes
 Route::get('/listing', [FuzzingEndpointController::class, 'reqrespListing']);
-Route::get('/listing/{filename}', [FuzzingEndpointController::class, 'reqrespSpecificFilenameListing']);
-Route::get('/listing/{hostname}', [FuzzingEndpointController::class, 'reqrespSpecificHostnameListing']);
+Route::get('/listing/{hostOrFilename}', [FuzzingEndpointController::class, 'reqrespSpecificHostnameListing']);
+Route::get('/listing/{hostname}/{filename}', [FuzzingEndpointController::class, 'reqrespSpecificFilenameListing']);
