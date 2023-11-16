@@ -189,21 +189,35 @@
                                 <table class="table tablesorter " id="">
                                   <thead class=" text-primary">
                                     <tr>
-                                      <th>
-                                        Request filenames
-                                      </th>
+                                      @isset($hostOrFilename)
+                                        <th style="width: 75%;">
+                                          Request filenames
+                                        </th>
+                                        <th style="width: 25%; text-align: center;">
+                                          Send to Burp
+                                        </th>
+                                      @else
+                                        <th>
+                                          Request filenames
+                                        </th>
+                                      @endisset
                                     </tr>
                                   </thead>
                                   <tbody>
                                         @foreach ($filenames as $filename)
                                             <tr>
-                                                <td>
-                                                @isset($hostOrFilename)
+                                            @isset($hostOrFilename)
+                                                <td style="width: 75%;">
                                                     <a href="/listing/{{ $hostOrFilename }}/{{ $filename }}">{{ $filename }}</a>
-                                                @else
-                                                    <a href="/listing/{{ $filename }}">{{ $filename }}</a>
-                                                @endisset
                                                 </td>
+                                                <td style="width: 25%; text-align: center">
+                                                    <img src="{{ asset('img/forward.png') }}" style="width: 7.5%; height: 7.5%;"/>
+                                                </td>
+                                            @else
+                                                <td>
+                                                    <a href="/listing/{{ $filename }}">{{ $filename }}</a>
+                                                </td>
+                                            @endisset
                                             </tr>
                                         @endforeach
                                   </tbody>

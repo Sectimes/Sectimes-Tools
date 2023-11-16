@@ -66,11 +66,11 @@ class FuzzingEndpointController extends Controller
 
         if ($reqrespChecked) {
             $checked = 'true';
-            $result_ffuf = $this->execute("ffuf -w '" .base_path('wordlist') . "/SQLi/ALL.txt' -u '$endpoint_fuzz' -od " . base_path('public') . "/reqresp/$hostname/");
+            $result_ffuf = $this->execute("ffuf -w '" . base_path('wordlist') . "/SQLi/ALL.txt' -u '$endpoint_fuzz' -od " . base_path('public') . "/reqresp/$hostname/");
         } else {
             $filename_endpoint = $hostname . "-" . md5($endpoint);
             $checked = 'false';
-            $result_ffuf = $this->execute("ffuf -w '" .base_path('wordlist') . "/SQLi/ALL.txt' -u '$endpoint_fuzz' -of html -o " . base_path('public') . "/result-ffuf/$filename_endpoint.html");
+            $result_ffuf = $this->execute("ffuf -w '" . base_path('wordlist') . "/SQLi/ALL.txt' -u '$endpoint_fuzz' -of html -o " . base_path('public') . "/result-ffuf/$filename_endpoint.html");
         }
 
         return view('fuzzing-endpoints', compact('endpoint', 'filename_endpoint', 'hostname', 'checked'));
