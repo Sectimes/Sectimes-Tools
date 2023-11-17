@@ -64,7 +64,7 @@ Route::get('/target-scanned', [TargetScannedController::class, 'index']);
 Route::get('/target-scanned/{target_id}', [TargetScannedController::class,'show']);
 
 // Burp Suite Connection Routes
-Route::get('/burp', [BurpSuiteController::class,'burpProxyConnect']);
+Route::post('/burp', [BurpSuiteController::class, 'burpProxyConnect']);
 
 // Public listing reqresp routes
 Route::get('/listing', [FuzzingEndpointController::class, 'reqrespListing']);

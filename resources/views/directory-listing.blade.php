@@ -181,7 +181,7 @@
                 <h3 class="title">Filenames List</h3>
               </div>
               <div class="card-body">
-                <form action="/fuzzing" method="POST">
+                {{-- <form action="/fuzzing" method="POST"> --}}
                 <!-- Target to track endpoint-->
                     <div class="col-md-12 pl-md-1">
                         <div class="form-group">
@@ -210,9 +210,13 @@
                                                 <td style="width: 75%;">
                                                     <a href="/listing/{{ $hostOrFilename }}/{{ $filename }}">{{ $filename }}</a>
                                                 </td>
-                                                <td style="width: 25%; text-align: center">
-                                                    <img src="{{ asset('img/forward.png') }}" style="width: 7.5%; height: 7.5%;"/>
-                                                </td>
+                                                <form action="/burp" method="POST">
+                                                    @csrf
+                                                    <td style="width: 25%; text-align: center">
+                                                        <input type="hidden" name="request-file-name" value="{{ $hostOrFilename }}/{{ $filename }}">
+                                                        <button type="submit" style="border: none; background: none;"><img src="{{ asset('img/forward.png') }}" style="width: 7.5%; height: 7.5%;"/></button>
+                                                    </td>
+                                                </form>
                                             @else
                                                 <td>
                                                     <a href="/listing/{{ $filename }}">{{ $filename }}</a>
