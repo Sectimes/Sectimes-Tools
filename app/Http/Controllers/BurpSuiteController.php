@@ -51,7 +51,8 @@ class BurpSuiteController extends Controller
     }
 
     public function sendToBurp($host, $path) {
-        $proxy = 'http://192.168.2.22:8080';
+        $hostIP = env('HOST_MACHINE_IP');
+        $proxy = "http://$hostIP:8080";
         $client = new Client([
             'base_uri' => 'http://' . $host,
             'proxy' => $proxy,
