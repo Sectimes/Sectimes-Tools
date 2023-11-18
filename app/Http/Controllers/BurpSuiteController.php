@@ -38,11 +38,9 @@ class BurpSuiteController extends Controller
         try {
             if (preg_match('/Host: (\S+)/', $getRequest, $matches)) {
                 $host = $matches[1];
-                // echo 'Host: ' . $host . PHP_EOL;
             }
             if (preg_match('/GET (\S+) HTTP/', $getRequest, $matches)) {
                 $path = $matches[1];
-                // echo 'Path: ' . $path . PHP_EOL;
             }
         } catch (\Exception $e) {
             abort(500, $e->getMessage());
