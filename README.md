@@ -50,6 +50,11 @@ cd Sectimes-Tools && docker-compose up
 - If things run smoothly, by default, the project would comes up on port 8000.
 - Go to `http://localhost:8000` to connect to the app.
 
+## Payload lists:
+- XSS Payload list: [https://github.com/payloadbox/xss-payload-list](https://github.com/payloadbox/xss-payload-list)
+- Command Injection Payload list: [https://github.com/payloadbox/command-injection-payload-list](https://github.com/payloadbox/command-injection-payload-list)
+- Directories fuzzing Payload lists [https://gist.github.com/yassineaboukir/8e12adefbd505ef704674ad6ad48743d](https://gist.github.com/yassineaboukir/8e12adefbd505ef704674ad6ad48743d) And [https://github.com/clarkvoss/AEM-List/tree/main](https://github.com/clarkvoss/AEM-List/tree/main) And [https://github.com/digination/dirbuster-ng/blob/master/wordlists/common.txt](https://github.com/digination/dirbuster-ng/blob/master/wordlists/common.txt)
+
 ## Developers:
 Many thanks to our core Developers. (They require to hide their names, so we tend to call them ***Anonymous Duck*** and ***Anonymous Monkey***).
 
