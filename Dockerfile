@@ -48,6 +48,8 @@ RUN mkdir -p /home/$user/.composer && \
 
 COPY . /var/www
 
+RUN chmod +x /var/www/start.sh
+
 # Set working directory
 WORKDIR /var/www
 
