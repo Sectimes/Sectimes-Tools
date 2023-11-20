@@ -259,7 +259,7 @@
                         <td style="width: 10%;">
                           {{ $epScanned['id'] }}
                         </td>
-                        <td style="width: 50%">
+                        <td style="width: 50%;">
                           {{ $epScanned['endpoint'] }}
                         </td>
                         <td style="width: 10%;">
@@ -279,13 +279,6 @@
                 @endisset
                     </tbody>
                   </table>
-                  {{-- <div class="col-md-12 pl-md-1">
-                    <div class="form-group">
-                      <label for="exampleDomain">Output Result of {{ $target ?? '' }}</label>
-                      <textarea class="form-control" id="response-result" style="height:500px; color: white;" placeholder="Results" readonly>@isset($endpoints) @foreach ($endpoints as $endpoint) {{ $endpoint['endpoint'] . PHP_EOL }} @endforeach @else @endisset</textarea>
-                      <!-- Add PHP_EOL to enter a newline after listing a URL -->
-                    </div>
-                  </div> --}}
               </div>
             </div>
           </div>
