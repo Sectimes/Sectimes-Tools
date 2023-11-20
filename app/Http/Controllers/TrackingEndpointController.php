@@ -32,7 +32,9 @@ class TrackingEndpointController extends Controller
             $htmlContent = $result['response'];
         } else {
             // Create a new Guzzle Client
-            $client = new Client();
+            $client = new Client([
+                'verify' => false
+            ]);
 
             $response = $client->get($target);
             $htmlContent = $response->getBody()->getContents();

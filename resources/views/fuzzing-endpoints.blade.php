@@ -230,7 +230,7 @@
                         </div>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" name="wordlist[]" value="DIR">
+                                <input class="form-check-input" type="checkbox" name="wordlist[]" value="Dir">
                                     <span class="form-check-sign">
                                         <span class="check">Dir wordlist</span>
                                     </span>
@@ -277,7 +277,7 @@
                       @if ($checked === 'true')
                       <tr>
                         <td>
-                          {{ $endpoint ?? '' }} {{ $checked }}
+                          {{ $endpoint ?? '' }}
                         </td>
                         <td>
                           <a href="{{ '/listing/' . $hostname }}">{{ '/listing/' . $hostname }}</a>
