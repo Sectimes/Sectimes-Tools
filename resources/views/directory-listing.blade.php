@@ -78,6 +78,12 @@
           <li>
             <a href="/listing">
               <i class="tim-icons icon-align-center"></i>
+              <p>Listing Results</p>
+            </a>
+          </li>
+          <li>
+            <a href="/target-scanned">
+              <i class="tim-icons icon-align-center"></i>
               <p>Target Scanned</p>
             </a>
           </li>
