@@ -251,14 +251,10 @@
                 <br>
                 <div class="col-md-12 pl-md-1">
                     <div class="form-group">
-                        @isset($endpoint)
-                            <p class="text-success">Output Result of {{ $endpoint ?? '' }}</p>
-                        @else
-                            <p class="text-info">Output Result of {{ $endpoint ?? '' }}</p>
-                        @endisset
+                      <p class="text-info">We are scanning your Target, we will announce you when the Job is done!</p>
                     </div>
                 </div>
-                  <table class="table tablesorter" id="">
+                  {{-- <table class="table tablesorter" id="">
                     <thead class=" text-primary">
                       <tr>
                         <th>
@@ -291,7 +287,7 @@
                       </tr>
                       @endisset
                     </tbody>
-                  </table>
+                  </table> --}}
               </div>
             </div>
           </div>

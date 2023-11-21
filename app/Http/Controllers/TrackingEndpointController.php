@@ -28,7 +28,7 @@ class TrackingEndpointController extends Controller
             ['num_of_results' => null]
         );
 
-        ProcessRequestToTarget::dispatch($target, $cookies);
+        ProcessRequestToTarget::dispatch($target, $cookies)->onQueue('queue1');
 
         $endpoints = TrackingEndpointResults::where('target', $target)->get();
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\ProcessFuzzingEndpoint;
 use Illuminate\Http\Request;
 use Symfony\Component\Process\Process;
 use Illuminate\Support\Facades\File;
@@ -47,81 +48,12 @@ class FuzzingEndpointController extends Controller
         $input = $request->all();
         $endpoint = $request->input('endpoint');
         $wordlists = $request->input('wordlist');
-        // dd($wordlists);
-
-        $endpoint_fuzz = preg_replace('/=([^&]+)/', '=FUZZ', $endpoint);
-
-        // Parsel URL to get only the hostname and check if we can extract the hostname or not
-        $parseUrl = parse_url($endpoint);
-        if (isset($parseUrl['host'])) {
-            $hostname = $parseUrl['host'];
-        } else {
-            $hostname = "default-hostname-" . self::$counter;
-            self::$counter++;
-        }
-        
-        // Condition on reqresp box
         $reqrespChecked = $request->has('reqresp');
-        $checked = '';
-        $filename_endpoint = null;
 
-        $sqliWL = base_path('wordlist') . "/SQLi/ALL.txt";
-        $xssWL = base_path('wordlist') . "/XSS/ALL.txt";
-        $dirWL = base_path('wordlist') . "/DirFuzzing/basic.txt";
-        $cmdiWL = base_path('wordlist') . "/CMDi/unix.txt";
+        ProcessFuzzingEndpoint::dispatch($reqrespChecked, $endpoint, $wordlists)->onQueue('queue2'); 
 
-        if ($reqrespChecked) {
-            $checked = 'true';
-            $ffufCommand = "ffuf -u '$endpoint_fuzz' -od " . base_path('public') . "/reqresp/$hostname/";
-            
-            foreach ($wordlists as $wordlist) {
-                switch($wordlist) {
-                    case "SQLi":
-                        $ffufCommand .= " -w '$sqliWL'";
-                        break;
-                    case "XSS":
-                        $ffufCommand .= " -w '$xssWL'";
-                        break;
-                    case "CMDi":
-                        $ffufCommand .= " -w '$cmdiWL'";
-                        break;
-                    case "Dir":
-                        $ffufCommand .= " -w '$dirWL'";
-                        break;
-                    default:
-                        $ffufCommand .= "";
-                        break;
-                }
-            }
-            $result_ffuf = $this->execute($ffufCommand);
-        } else {
-            $filename_endpoint = $hostname . "-" . md5($endpoint);
-            $checked = 'false';
-            $ffufCommand = "ffuf -u '$endpoint_fuzz' -of html -o " . base_path('public') . "/result-ffuf/$filename_endpoint.html";
-
-            foreach ($wordlists as $wordlist) {
-                switch($wordlist) {
-                    case "SQLi":
-                        $ffufCommand .= " -w '$sqliWL'";
-                        break;
-                    case "XSS":
-                        $ffufCommand .= " -w '$xssWL'";
-                        break;
-                    case "CMDi":
-                        $ffufCommand .= " -w '$cmdiWL'";
-                        break;
-                    case "Dir":
-                        $ffufCommand .= " -w '$dirWL'";
-                        break;
-                    default:
-                        $ffufCommand .= "";
-                        break;
-                }
-            }
-            $result_ffuf = $this->execute($ffufCommand);
-        }
-
-        return view('fuzzing-endpoints', compact('endpoint', 'filename_endpoint', 'hostname', 'checked'));
+        // return view('fuzzing-endpoints', compact('endpoint', 'filename_endpoint', 'hostname', 'checked'));
+        return view('fuzzing-endpoints');
     }
 
     public function reqrespListing() {
