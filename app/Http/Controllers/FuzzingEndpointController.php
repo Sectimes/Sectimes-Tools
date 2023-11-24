@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\JobDoneEvent;
+use App\Models\Counter;
 use App\Jobs\ProcessFuzzingEndpoint;
+use App\Models\JobStatus;
 use Illuminate\Http\Request;
 use Symfony\Component\Process\Process;
 use Illuminate\Support\Facades\File;
@@ -10,8 +13,6 @@ use Illuminate\Support\Facades\Response;
 
 class FuzzingEndpointController extends Controller
 {
-    private static $counter = 1;
-
     public static function execute($cmd): string
     {
         $process = Process::fromShellCommandline($cmd);
@@ -50,10 +51,24 @@ class FuzzingEndpointController extends Controller
         $wordlists = $request->input('wordlist');
         $reqrespChecked = $request->has('reqresp');
 
-        ProcessFuzzingEndpoint::dispatch($reqrespChecked, $endpoint, $wordlists)->onQueue('queue2'); 
+        $successCounter = Counter::where('id', 1)->value('success_counter');
+        $counter = Counter::where('id', 1)->value('counter');
+
+        $parseUrl = parse_url($endpoint);
+        if (isset($parseUrl['host'])) {
+            $hostname = $parseUrl['host'] . "-" . $successCounter;
+            $successCounter++;
+            Counter::where('id', 1)->update(['success_counter' => $successCounter]);
+        } else {
+            $hostname = "default-hostname-" . $counter;
+            $counter++;
+            Counter::where('id', 1)->update(['counter' => $counter]);
+        }
+
+        ProcessFuzzingEndpoint::dispatch($reqrespChecked, $endpoint, $wordlists)->onQueue('queue2');
 
         // return view('fuzzing-endpoints', compact('endpoint', 'filename_endpoint', 'hostname', 'checked'));
-        return view('fuzzing-endpoints');
+        return view('fuzzing-endpoints', compact('hostname'));
     }
 
     public function reqrespListing() {
@@ -109,5 +124,11 @@ class FuzzingEndpointController extends Controller
         } else {
             abort(404);
         }
+    }
+
+    public function checkJobStatus($jobName) {
+        $isDone = JobStatus::where('job_name', $jobName)->value('is_done');
+        // JobStatus::destroy($jobName);
+        return response()->json(['jobDone' => $isDone]);
     }
 }

@@ -70,3 +70,6 @@ Route::post('/burp', [BurpSuiteController::class, 'burpProxyConnect']);
 Route::get('/listing', [FuzzingEndpointController::class, 'reqrespListing']);
 Route::get('/listing/{hostOrFilename}', [FuzzingEndpointController::class, 'reqrespSpecificHostnameListing']);
 Route::get('/listing/{hostname}/{filename}', [FuzzingEndpointController::class, 'reqrespSpecificFilenameListing']);
+
+// Check Job is done or not
+Route::get('/check-job-status/{jobName}', [FuzzingEndpointController::class,'checkJobStatus']);

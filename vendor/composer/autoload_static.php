@@ -503,6 +503,7 @@ class ComposerStaticInit4b2753ef0a931b52a87c50e8a019b97d
 
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Events\\JobDoneEvent' => __DIR__ . '/../..' . '/app/Events/JobDoneEvent.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\BurpSuiteController' => __DIR__ . '/../..' . '/app/Http/Controllers/BurpSuiteController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
@@ -521,7 +522,11 @@ class ComposerStaticInit4b2753ef0a931b52a87c50e8a019b97d
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Jobs\\ProcessFuzzingEndpoint' => __DIR__ . '/../..' . '/app/Jobs/ProcessFuzzingEndpoint.php',
         'App\\Jobs\\ProcessRequestToTarget' => __DIR__ . '/../..' . '/app/Jobs/ProcessRequestToTarget.php',
+        'App\\Listeners\\JobDoneListener' => __DIR__ . '/../..' . '/app/Listeners/JobDoneListener.php',
+        'App\\Models\\Counter' => __DIR__ . '/../..' . '/app/Models/Counter.php',
+        'App\\Models\\JobStatus' => __DIR__ . '/../..' . '/app/Models/JobStatus.php',
         'App\\Models\\TrackingEndpointResults' => __DIR__ . '/../..' . '/app/Models/TrackingEndpointResults.php',
         'App\\Models\\TrackingEndpointTarget' => __DIR__ . '/../..' . '/app/Models/TrackingEndpointTarget.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',

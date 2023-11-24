@@ -13,6 +13,17 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
+
+@extends('layouts.app')
+
+@section('content')
+    <!-- Your main content here -->
+    {{-- {{ session('jobDone') }} <h1>Test</h1> --}}
+
+    @include('partials.announcement', ['announcement' => 'Job is done!'])
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -251,7 +262,7 @@
                 <br>
                 <div class="col-md-12 pl-md-1">
                     <div class="form-group">
-                      <p class="text-info">We are scanning your Target, we will announce you when the Job is done!</p>
+                      <p class="text-info">Don't leave the page :) We are scanning your Target, we will announce you when the Job is done!</p>
                     </div>
                 </div>
                   {{-- <table class="table tablesorter" id="">
@@ -496,7 +507,9 @@
         token: "ee6fab19c5a04ac1a32a645abde4613a",
         application: "black-dashboard-free"
       });
+      var endpoint = "{{ $hostname ?? '' }}";
   </script>
 </body>
 
 </html>
+@endsection

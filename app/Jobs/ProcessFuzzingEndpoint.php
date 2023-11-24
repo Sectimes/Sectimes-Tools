@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Events\JobDoneEvent;
 use Illuminate\Bus\Queueable;
 use Symfony\Component\Process\Process;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -64,7 +65,7 @@ class ProcessFuzzingEndpoint implements ShouldQueue
     public function handle()
     {
         $endpoint_fuzz = preg_replace('/=([^&]+)/', '=FUZZ', $this->endpoint);
-
+    
         // Parsel URL to get only the hostname and check if we can extract the hostname or not
         $parseUrl = parse_url($this->endpoint);
         if (isset($parseUrl['host'])) {
@@ -74,17 +75,14 @@ class ProcessFuzzingEndpoint implements ShouldQueue
             self::$counter++;
         }
         
-        // Condition on reqresp box
-        $checked = '';
         $filename_endpoint = null;
-
+    
         $sqliWL = base_path('wordlist') . "/SQLi/ALL.txt";
         $xssWL = base_path('wordlist') . "/XSS/ALL.txt";
         $dirWL = base_path('wordlist') . "/DirFuzzing/basic.txt";
         $cmdiWL = base_path('wordlist') . "/CMDi/unix.txt";
-
+    
         if ($this->reqrespChecked) {
-            $checked = 'true';
             $ffufCommand = "ffuf -u '$endpoint_fuzz' -od " . base_path('public') . "/reqresp/$hostname/";
             
             foreach ($this->wordlists as $wordlist) {
@@ -106,12 +104,11 @@ class ProcessFuzzingEndpoint implements ShouldQueue
                         break;
                 }
             }
-            $result_ffuf = $this->execute($ffufCommand);
+            $this->execute($ffufCommand);
         } else {
             $filename_endpoint = $hostname . "-" . md5($this->endpoint);
-            $checked = 'false';
             $ffufCommand = "ffuf -u '$endpoint_fuzz' -of html -o " . base_path('public') . "/result-ffuf/$filename_endpoint.html";
-
+    
             foreach ($this->wordlists as $wordlist) {
                 switch($wordlist) {
                     case "SQLi":
@@ -131,8 +128,11 @@ class ProcessFuzzingEndpoint implements ShouldQueue
                         break;
                 }
             }
-            $result_ffuf = $this->execute($ffufCommand);
+            $this->execute($ffufCommand);
         }
+    
+        // Dispatch the event when the job is done
+        event(new JobDoneEvent($this->endpoint));
     }
 
     
