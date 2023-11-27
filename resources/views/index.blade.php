@@ -76,6 +76,12 @@
             </a>
           </li>
           <li>
+            <a href="/ffuf-result">
+              <i class="tim-icons icon-align-center"></i>
+              <p>FFUF Result</p>
+            </a>
+          </li>
+          <li>
             <a href="/listing">
               <i class="tim-icons icon-align-center"></i>
               <p>Listing Results</p>

@@ -120,7 +120,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="/network">Network Scanning</a>
+            <a class="navbar-brand" href="/network">Result FFUF Listing</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -190,162 +190,67 @@
           <div class="col-md-11">
             <div class="card">
               <div class="card-header">
-                <h5 class="title">Network Scanning Tools</h5>
+                <h3 class="title">Filenames List</h3>
               </div>
               <div class="card-body">
-                <form>
-                  <div class="row">
-                    <div class="col-md-6 pr-md-1">
-                      <div class="form-group">
-                        <label>Select Tools</label>
-                        <select class="form-control" placeholder="Select Tools" value="">
-                            <option value="Nmap">Nmap</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-md-6 pl-md-1">
-                      <div class="form-group">
-                        <label for="exampleDomain">Domain <span style="color: red;">*</span></label>
-                        <input type="text" class="form-control" placeholder="example.com">
-                      </div>
-                    </div>
-                  </div>
-                  <label>Options</label>
-                  <div class="row">
-                    <style>
-                        .switch {
-                          position: relative;
-                          display: inline-block;
-                          width: 60px;
-                          height: 34px;
-                        }
-                        
-                        .switch input { 
-                          opacity: 0;
-                          width: 0;
-                          height: 0;
-                        }
-                        
-                        .slider {
-                          position: absolute;
-                          cursor: pointer;
-                          top: 0;
-                          left: 0;
-                          right: 0;
-                          bottom: 0;
-                          background-color: #ccc;
-                          -webkit-transition: .4s;
-                          transition: .4s;
-                        }
-                        
-                        .slider:before {
-                          position: absolute;
-                          content: "";
-                          height: 26px;
-                          width: 26px;
-                          left: 4px;
-                          bottom: 4px;
-                          background-color: white;
-                          -webkit-transition: .4s;
-                          transition: .4s;
-                        }
-                        
-                        input:checked + .slider {
-                          background-color: #2196F3;
-                        }
-                        
-                        input:focus + .slider {
-                          box-shadow: 0 0 1px #2196F3;
-                        }
-                        
-                        input:checked + .slider:before {
-                          -webkit-transform: translateX(26px);
-                          -ms-transform: translateX(26px);
-                          transform: translateX(26px);
-                        }
-                        
-                        /* Rounded sliders */
-                        .slider.round {
-                          border-radius: 34px;
-                        }
-                        
-                        .slider.round:before {
-                          border-radius: 50%;
-                        }
-                    </style>
-                    <div class="col-md-2 pr-md-1">
-                      <label>Version</label>
-                      <div class="form-group">
-                        <label class="switch">
-                          <input type="checkbox">
-                          <span class="slider round"></span>
-                        </label>
-                      </div>
-                    </div>
-                    <div class="col-md-2 pr-md-1">
-                        <label>Service</label><br>
+                {{-- <form action="/fuzzing" method="POST"> --}}
+                <!-- Target to track endpoint-->
+                    <div class="col-md-12 pl-md-1">
                         <div class="form-group">
-                          <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                          </label>
+                            <div class="table-responsive">
+                                <table class="table tablesorter " id="">
+                                  <thead class=" text-primary">
+                                    <tr>
+                                      @isset($hostOrFilename)
+                                        <th style="width: 75%;">
+                                          Request filenames
+                                        </th>
+                                        <th style="width: 25%; text-align: center;">
+                                          Send to Burp
+                                        </th>
+                                      @else
+                                        <th>
+                                          Request filenames
+                                        </th>
+                                      @endisset
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                        @foreach ($filenames as $filename)
+                                            <tr>
+                                                <td>
+                                                    <a href="/ffuf-result/{{ $filename }}">{{ $filename }}</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                  </tbody>
+                                </table>
+                              </div>
+                              @if (@isset($foldernames))
+                              <div class="table-responsive">
+                                <table class="table tablesorter " id="">
+                                  <thead class=" text-primary">
+                                    <tr>
+                                      <th>
+                                        Request foldernames
+                                      </th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                        @foreach ($foldernames as $foldername)
+                                            <tr>
+                                                <td>
+                                                  <a href="/listing/{{ $foldername }}">{{ $foldername }}</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                  </tbody>
+                                </table>
+                              </div>
+                              @endif
                         </div>
-                      </div>
-                      <div class="col-md-2 pr-md-1">
-                        <label>OS</label>
-                        <div class="form-group">
-                          <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                          </label>
-                        </div>
-                      </div>
-                      <div class="col-md-2 pr-md-1">
-                        <label>Verbose</label>
-                        <div class="form-group">
-                          <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                          </label>
-                        </div>
-                      </div>
-                      <div class="col-md-2 pr-md-1">
-                        <label>Full ports</label>
-                        <div class="form-group">
-                          <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                          </label>
-                        </div>
-                      </div>
-                      <div class="col-md-2 pr-md-1">
-                        <label>Aggressive mode</label>
-                        <div class="form-group">
-                          <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                          </label>
-                        </div>
-                      </div>
-                  </div>
-                </form>
-                <!-- Command to Execute Nmap -->
-                <div class="col-md-12 pl-md-1">
-                    <div class="form-group">
-                      <label for="exampleDomain">Command to Execute</label>
-                      <input type="text" class="form-control" placeholder="Command">
                     </div>
-                  </div>
-                  <div class="col-md-12 pl-md-1">
-                    <div class="form-group">
-                      <label for="exampleDomain">Output Result</label>
-                      <textarea class="form-control" id="nmap" style="height:500px; color: white;" placeholder="Results" readonly></textarea>
-                    </div>
-                  </div>
-              </div>
-              <div class="card-footer">
-                <button type="submit" class="btn btn-fill btn-primary">Scan</button>
-              </div>
+                </div>
             </div>
           </div>
           </div>

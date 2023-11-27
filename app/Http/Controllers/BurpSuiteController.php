@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use Log;
 
 class BurpSuiteController extends Controller
 {
@@ -49,6 +48,8 @@ class BurpSuiteController extends Controller
     }
 
     public function sendToBurp($host, $path) {
+
+        // Please change your Host IP in .env file
         $hostIP = env('HOST_MACHINE_IP');
         $proxy = "http://$hostIP:8080";
         $client = new Client([

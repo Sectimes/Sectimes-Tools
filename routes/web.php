@@ -6,6 +6,8 @@ use App\Http\Controllers\FuzzingEndpointController;
 use App\Http\Controllers\UpdateChartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ListingRequestResponseController;
+use App\Http\Controllers\ListingFfufResultController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PictureController;
@@ -59,6 +61,9 @@ Route::post('tracking-endpoints', [TrackingEndpointController::class, 'requestTo
 Route::get('/fuzzing', [FuzzingEndpointController::class, 'index']);
 Route::post('/fuzzing', [FuzzingEndpointController::class, 'fuzz']);
 
+// Check Job is done or not
+Route::get('/check-job-status/{jobName}', [FuzzingEndpointController::class,'checkJobStatus']);  
+
 // Target Scanned Routes
 Route::get('/target-scanned', [TargetScannedController::class, 'index']);
 Route::get('/target-scanned/{target_id}', [TargetScannedController::class,'show']);
@@ -67,9 +72,10 @@ Route::get('/target-scanned/{target_id}', [TargetScannedController::class,'show'
 Route::post('/burp', [BurpSuiteController::class, 'burpProxyConnect']);
 
 // Public listing reqresp routes
-Route::get('/listing', [FuzzingEndpointController::class, 'reqrespListing']);
-Route::get('/listing/{hostOrFilename}', [FuzzingEndpointController::class, 'reqrespSpecificHostnameListing']);
-Route::get('/listing/{hostname}/{filename}', [FuzzingEndpointController::class, 'reqrespSpecificFilenameListing']);
+Route::get('/listing', [ListingRequestResponseController::class, 'reqrespListing']);
+Route::get('/listing/{hostOrFilename}', [ListingRequestResponseController::class, 'reqrespSpecificHostnameListing']);
+Route::get('/listing/{hostname}/{filename}', [ListingRequestResponseController::class, 'reqrespSpecificFilenameListing']); 
 
-// Check Job is done or not
-Route::get('/check-job-status/{jobName}', [FuzzingEndpointController::class,'checkJobStatus']);
+// Public result-ffuf dir routes
+Route::get('/ffuf-result', [ListingFfufResultController::class, 'resultFfufListing']);
+Route::get('/ffuf-result/{filename}', [ListingFfufResultController::class, 'resultFfufSpecificFilenameListing']);

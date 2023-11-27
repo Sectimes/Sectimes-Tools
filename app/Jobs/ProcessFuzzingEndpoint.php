@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Events\JobDoneEvent;
 use Illuminate\Bus\Queueable;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -33,15 +34,15 @@ class ProcessFuzzingEndpoint implements ShouldQueue
             $processOutput .= $line;
         };
 
-        $process->setTimeout(null)
-            ->run($captureOutput);
+        $process->setTimeout(null);
 
-        // if ($process->getExitCode()) {
-        //     $exception = new ShellCommandFailedException($cmd . " - " . $processOutput);
-        //     report($exception);
+        try {
+            $process->mustRun($captureOutput);
+        } catch (ProcessFailedException $e) {
+            report($e);
 
-        //     throw $exception;
-        // }
+            throw $e;
+        }
 
         return $processOutput;
     }
