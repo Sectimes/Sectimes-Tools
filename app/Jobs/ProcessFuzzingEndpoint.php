@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Events\JobDoneEvent;
+use App\Http\Controllers\ExecuteShellCommandController;
 use Illuminate\Bus\Queueable;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
@@ -23,29 +24,6 @@ class ProcessFuzzingEndpoint implements ShouldQueue
     public $wordlists;
 
     private static $counter = 1;
-
-    public static function execute($cmd): string
-    {
-        $process = Process::fromShellCommandline($cmd);
-
-        $processOutput = '';
-
-        $captureOutput = function ($type, $line) use (&$processOutput) {
-            $processOutput .= $line;
-        };
-
-        $process->setTimeout(null);
-
-        try {
-            $process->mustRun($captureOutput);
-        } catch (ProcessFailedException $e) {
-            report($e);
-
-            throw $e;
-        }
-
-        return $processOutput;
-    }
     /**
      * Create a new job instance.
      *
@@ -65,6 +43,8 @@ class ProcessFuzzingEndpoint implements ShouldQueue
      */
     public function handle()
     {
+        $shellCommand = new ExecuteShellCommandController();
+
         $endpoint_fuzz = preg_replace('/=([^&]+)/', '=FUZZ', $this->endpoint);
     
         // Parsel URL to get only the hostname and check if we can extract the hostname or not
@@ -105,7 +85,7 @@ class ProcessFuzzingEndpoint implements ShouldQueue
                         break;
                 }
             }
-            $this->execute($ffufCommand);
+            $shellCommand->execute($ffufCommand);
         } else {
             $filename_endpoint = $hostname . "-" . md5($this->endpoint);
             $ffufCommand = "ffuf -u '$endpoint_fuzz' -of html -o " . base_path('public') . "/result-ffuf/$filename_endpoint.html";
@@ -129,7 +109,7 @@ class ProcessFuzzingEndpoint implements ShouldQueue
                         break;
                 }
             }
-            $this->execute($ffufCommand);
+            $shellCommand->execute($ffufCommand);
         }
     
         // Dispatch the event when the job is done
