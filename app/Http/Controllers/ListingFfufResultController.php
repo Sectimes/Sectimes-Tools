@@ -11,14 +11,10 @@ class ListingFfufResultController extends Controller
 
         if (File::isDirectory($directory)) {
             $files = File::files($directory);
-            // $folders = File::directories($directory);
     
             $filenames = array_map(function ($file) {
                 return pathinfo($file)['basename'];
             }, $files);
-            // $foldernames = array_map(function ($folder) {
-                // return pathinfo($folder)['basename'];
-            // }, $folders);
 
             return view('result-ffuf-listing', compact('filenames'));
         } else {
@@ -31,7 +27,8 @@ class ListingFfufResultController extends Controller
 
         if (file_exists($filePath)) {
             $content = File::get($filePath);
-            return response($content, 200)->header('Content-Type', 'text/html');
+            // return response($content, 200)->header('Content-Type', 'text/html');
+            return response($content, 200)->header('Content-Type', 'application/json');
         } else {
             abort(404);
         }

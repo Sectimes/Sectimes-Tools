@@ -267,9 +267,11 @@
                 </form>
                 <br>
                 <div class="col-md-12 pl-md-1">
+                  @isset($hostname)
                     <div class="form-group">
                       <p class="text-info">Don't leave the page :) We are scanning your Target, we will announce you when the Job is done!</p>
                     </div>
+                  @endisset
                 </div>
                   {{-- <table class="table tablesorter" id="">
                     <thead class=" text-primary">
