@@ -88,7 +88,7 @@ class ProcessFuzzingEndpoint implements ShouldQueue
             $shellCommand->execute($ffufCommand);
         } else {
             $filename_endpoint = $hostname . "-" . md5($this->endpoint);
-            $ffufCommand = "ffuf -u '$endpoint_fuzz' -of html -o " . base_path('public') . "/result-ffuf/$filename_endpoint.html";
+            $ffufCommand = "ffuf -u '$endpoint_fuzz' -of json -o " . base_path('public') . "/result-ffuf/$filename_endpoint.json";
     
             foreach ($this->wordlists as $wordlist) {
                 switch($wordlist) {
