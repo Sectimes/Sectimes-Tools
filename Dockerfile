@@ -65,6 +65,9 @@ RUN chmod +x /var/www/webanalyze/webanalyze
 # https://github.com/WeiChiaChang/stacks-cli
 RUN npm install stacks-cli -g
 
+# This command quite dangerous, since it can be easily exploited to privilege escalation
+RUN chmod +s /usr/bin/nmap
+
 RUN useradd -G www-data,root -u $uid -d /home/$user $user
 RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
