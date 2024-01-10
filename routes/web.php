@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OneClickScanController;
 use App\Http\Controllers\TargetScannedController;
 use App\Http\Controllers\TrackingEndpointController;
 use App\Http\Controllers\FuzzingEndpointController;
@@ -79,3 +80,12 @@ Route::get('/listing/{hostname}/{filename}', [ListingRequestResponseController::
 // Public result-ffuf dir routes
 Route::get('/ffuf-result', [ListingFfufResultController::class, 'resultFfufListing']);
 Route::get('/ffuf-result/{filename}', [ListingFfufResultController::class, 'resultFfufSpecificFilenameListing']);
+
+// Heart Letter route
+Route::get('/heart-letter', function (){
+    return view('heart-letter');
+});
+
+// 1 Click Scan route
+Route::get('/scan', [OneClickScanController::class, 'index']);
+Route::post('/scan', [OneClickScanController::class, 'scan']);
